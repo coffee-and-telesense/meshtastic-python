@@ -13,7 +13,6 @@ source $(poetry env info --path)/bin/activate
 TMPDIR=./build/meshtastic/protofixup
 echo "Fixing up protobuf paths in ${TMPDIR} temp directory"
 
-
 # Ensure a clean build
 [ -e "${TMPDIR}" ] && rm -r "${TMPDIR}"
 
@@ -27,10 +26,10 @@ cp ./protobufs/nanopb.proto "${INDIR}"
 # OS-X sed is apparently a little different and expects an arg for -i
 if [[ $OSTYPE == 'darwin'* ]]; then
 	SEDCMD="sed -i '' -E"
+	echo "Using OSX sed"
 else
 	SEDCMD="sed -i -E"
 fi
-
 
 # change the package names to meshtastic.protobuf
 $SEDCMD 's/^package meshtastic;/package meshtastic.protobuf;/' "${INDIR}/"*.proto
@@ -40,7 +39,7 @@ $SEDCMD 's/^import "meshtastic\//import "meshtastic\/protobuf\//' "${INDIR}/"*.p
 $SEDCMD 's/^import "nanopb.proto"/import "meshtastic\/protobuf\/nanopb.proto"/' "${INDIR}/"*.proto
 
 # Generate the python files
-./nanopb-0.4.8/generator-bin/protoc -I=$TMPDIR/in --python_out "${OUTDIR}" "--mypy_out=${PYIDIR}" $INDIR/*.proto
+./nanopb-0.4.8/generator/protoc -I=$TMPDIR/in --python_out "${OUTDIR}" "--mypy_out=${PYIDIR}" $INDIR/*.proto
 
 # Change "from meshtastic.protobuf import" to "from . import"
 $SEDCMD 's/^from meshtastic.protobuf import/from . import/' "${OUTDIR}"/meshtastic/protobuf/*pb2*.py[i]

@@ -85,7 +85,8 @@ class _TelemetrySensorTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wra
     """
     BMP085: _TelemetrySensorType.ValueType  # 15
     """
-    BMP085/BMP180 High accuracy temperature and pressure (older Version of BMP280)
+    BMP085/BMP180 High accuracy temperature and pressure (older Version of
+    BMP280)
     """
     RCWL9620: _TelemetrySensorType.ValueType  # 16
     """
@@ -121,7 +122,8 @@ class _TelemetrySensorTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wra
     """
     DFROBOT_LARK: _TelemetrySensorType.ValueType  # 24
     """
-    DFRobot Lark Weather station (temperature, humidity, pressure, wind speed and direction)
+    DFRobot Lark Weather station (temperature, humidity, pressure, wind speed
+    and direction)
     """
     NAU7802: _TelemetrySensorType.ValueType  # 25
     """
@@ -141,7 +143,8 @@ class _TelemetrySensorTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wra
     """
     CUSTOM_SENSOR: _TelemetrySensorType.ValueType  # 29
     """
-    Custom I2C sensor implementation based on https://github.com/meshtastic/i2c-sensor
+    Custom I2C sensor implementation based on
+    https://github.com/meshtastic/i2c-sensor
     """
     MAX30102: _TelemetrySensorType.ValueType  # 30
     """
@@ -167,13 +170,13 @@ class _TelemetrySensorTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wra
     """
     DFRobot Gravity tipping bucket rain gauge
     """
-    DPS310: _TelemetrySensorType.ValueType  # 36
+    SCD30: _TelemetrySensorType.ValueType  # 36
     """
-    Infineon DPS310 High accuracy pressure and temperature
+    SCD30 Temperature, Humidity, and CO2
     """
-    RAK12035: _TelemetrySensorType.ValueType  # 37
+    AS7265X: _TelemetrySensorType.ValueType  # 37
     """
-    RAKWireless RAK12035 Soil Moisture Sensor Module
+    AS7265X Spectral Triad spectroscopy sensor
     """
 
 class TelemetrySensorType(_TelemetrySensorType, metaclass=_TelemetrySensorTypeEnumTypeWrapper):
@@ -243,7 +246,8 @@ INA3221 3 Channel Voltage / Current Sensor
 """
 BMP085: TelemetrySensorType.ValueType  # 15
 """
-BMP085/BMP180 High accuracy temperature and pressure (older Version of BMP280)
+BMP085/BMP180 High accuracy temperature and pressure (older Version of
+BMP280)
 """
 RCWL9620: TelemetrySensorType.ValueType  # 16
 """
@@ -279,7 +283,8 @@ AHT10 Integrated temperature and humidity sensor
 """
 DFROBOT_LARK: TelemetrySensorType.ValueType  # 24
 """
-DFRobot Lark Weather station (temperature, humidity, pressure, wind speed and direction)
+DFRobot Lark Weather station (temperature, humidity, pressure, wind speed
+and direction)
 """
 NAU7802: TelemetrySensorType.ValueType  # 25
 """
@@ -299,7 +304,8 @@ MAX17048 1S lipo battery sensor (voltage, state of charge, time to go)
 """
 CUSTOM_SENSOR: TelemetrySensorType.ValueType  # 29
 """
-Custom I2C sensor implementation based on https://github.com/meshtastic/i2c-sensor
+Custom I2C sensor implementation based on
+https://github.com/meshtastic/i2c-sensor
 """
 MAX30102: TelemetrySensorType.ValueType  # 30
 """
@@ -325,13 +331,13 @@ DFROBOT_RAIN: TelemetrySensorType.ValueType  # 35
 """
 DFRobot Gravity tipping bucket rain gauge
 """
-DPS310: TelemetrySensorType.ValueType  # 36
+SCD30: TelemetrySensorType.ValueType  # 36
 """
-Infineon DPS310 High accuracy pressure and temperature
+SCD30 Temperature, Humidity, and CO2
 """
-RAK12035: TelemetrySensorType.ValueType  # 37
+AS7265X: TelemetrySensorType.ValueType  # 37
 """
-RAKWireless RAK12035 Soil Moisture Sensor Module
+AS7265X Spectral Triad spectroscopy sensor
 """
 global___TelemetrySensorType = TelemetrySensorType
 
@@ -358,7 +364,8 @@ class DeviceMetrics(google.protobuf.message.Message):
     """
     channel_utilization: builtins.float
     """
-    Utilization for the current channel, including well formed TX, RX and malformed RX (aka noise).
+    Utilization for the current channel, including well formed TX, RX and
+    malformed RX (aka noise).
     """
     air_util_tx: builtins.float
     """
@@ -420,8 +427,7 @@ class EnvironmentMetrics(google.protobuf.message.Message):
     RADIATION_FIELD_NUMBER: builtins.int
     RAINFALL_1H_FIELD_NUMBER: builtins.int
     RAINFALL_24H_FIELD_NUMBER: builtins.int
-    SOIL_MOISTURE_FIELD_NUMBER: builtins.int
-    SOIL_TEMPERATURE_FIELD_NUMBER: builtins.int
+    SENSOR_FIELD_NUMBER: builtins.int
     temperature: builtins.float
     """
     Temperature measured
@@ -440,20 +446,24 @@ class EnvironmentMetrics(google.protobuf.message.Message):
     """
     voltage: builtins.float
     """
-    Voltage measured (To be depreciated in favor of PowerMetrics in Meshtastic 3.x)
+    Voltage measured (To be depreciated in favor of PowerMetrics in
+    Meshtastic 3.x)
     """
     current: builtins.float
     """
-    Current measured (To be depreciated in favor of PowerMetrics in Meshtastic 3.x)
+    Current measured (To be depreciated in favor of PowerMetrics in
+    Meshtastic 3.x)
     """
     iaq: builtins.int
     """
     relative scale IAQ value as measured by Bosch BME680 . value 0-500.
-    Belongs to Air Quality but is not particle but VOC measurement. Other VOC values can also be put in here.
+    Belongs to Air Quality but is not particle but VOC measurement. Other VOC
+    values can also be put in here.
     """
     distance: builtins.float
     """
-    RCWL9620 Doppler Radar Distance Sensor, used for water level detection. Float value in mm.
+    RCWL9620 Doppler Radar Distance Sensor, used for water level detection.
+    Float value in mm.
     """
     lux: builtins.float
     """
@@ -461,7 +471,8 @@ class EnvironmentMetrics(google.protobuf.message.Message):
     """
     white_lux: builtins.float
     """
-    VEML7700 high accuracy white light(irradiance) not calibrated digital 16-bit resolution sensor.
+    VEML7700 high accuracy white light(irradiance) not calibrated digital
+    16-bit resolution sensor.
     """
     ir_lux: builtins.float
     """
@@ -504,13 +515,9 @@ class EnvironmentMetrics(google.protobuf.message.Message):
     """
     Rainfall in the last 24 hours in mm
     """
-    soil_moisture: builtins.int
+    sensor: global___TelemetrySensorType.ValueType
     """
-    Soil moisture measured (% 1-100)
-    """
-    soil_temperature: builtins.float
-    """
-    Soil temperature measured (*C)
+    Sensor type
     """
     def __init__(
         self,
@@ -535,11 +542,10 @@ class EnvironmentMetrics(google.protobuf.message.Message):
         radiation: builtins.float | None = ...,
         rainfall_1h: builtins.float | None = ...,
         rainfall_24h: builtins.float | None = ...,
-        soil_moisture: builtins.int | None = ...,
-        soil_temperature: builtins.float | None = ...,
+        sensor: global___TelemetrySensorType.ValueType | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_barometric_pressure", b"_barometric_pressure", "_current", b"_current", "_distance", b"_distance", "_gas_resistance", b"_gas_resistance", "_iaq", b"_iaq", "_ir_lux", b"_ir_lux", "_lux", b"_lux", "_radiation", b"_radiation", "_rainfall_1h", b"_rainfall_1h", "_rainfall_24h", b"_rainfall_24h", "_relative_humidity", b"_relative_humidity", "_soil_moisture", b"_soil_moisture", "_soil_temperature", b"_soil_temperature", "_temperature", b"_temperature", "_uv_lux", b"_uv_lux", "_voltage", b"_voltage", "_weight", b"_weight", "_white_lux", b"_white_lux", "_wind_direction", b"_wind_direction", "_wind_gust", b"_wind_gust", "_wind_lull", b"_wind_lull", "_wind_speed", b"_wind_speed", "barometric_pressure", b"barometric_pressure", "current", b"current", "distance", b"distance", "gas_resistance", b"gas_resistance", "iaq", b"iaq", "ir_lux", b"ir_lux", "lux", b"lux", "radiation", b"radiation", "rainfall_1h", b"rainfall_1h", "rainfall_24h", b"rainfall_24h", "relative_humidity", b"relative_humidity", "soil_moisture", b"soil_moisture", "soil_temperature", b"soil_temperature", "temperature", b"temperature", "uv_lux", b"uv_lux", "voltage", b"voltage", "weight", b"weight", "white_lux", b"white_lux", "wind_direction", b"wind_direction", "wind_gust", b"wind_gust", "wind_lull", b"wind_lull", "wind_speed", b"wind_speed"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_barometric_pressure", b"_barometric_pressure", "_current", b"_current", "_distance", b"_distance", "_gas_resistance", b"_gas_resistance", "_iaq", b"_iaq", "_ir_lux", b"_ir_lux", "_lux", b"_lux", "_radiation", b"_radiation", "_rainfall_1h", b"_rainfall_1h", "_rainfall_24h", b"_rainfall_24h", "_relative_humidity", b"_relative_humidity", "_soil_moisture", b"_soil_moisture", "_soil_temperature", b"_soil_temperature", "_temperature", b"_temperature", "_uv_lux", b"_uv_lux", "_voltage", b"_voltage", "_weight", b"_weight", "_white_lux", b"_white_lux", "_wind_direction", b"_wind_direction", "_wind_gust", b"_wind_gust", "_wind_lull", b"_wind_lull", "_wind_speed", b"_wind_speed", "barometric_pressure", b"barometric_pressure", "current", b"current", "distance", b"distance", "gas_resistance", b"gas_resistance", "iaq", b"iaq", "ir_lux", b"ir_lux", "lux", b"lux", "radiation", b"radiation", "rainfall_1h", b"rainfall_1h", "rainfall_24h", b"rainfall_24h", "relative_humidity", b"relative_humidity", "soil_moisture", b"soil_moisture", "soil_temperature", b"soil_temperature", "temperature", b"temperature", "uv_lux", b"uv_lux", "voltage", b"voltage", "weight", b"weight", "white_lux", b"white_lux", "wind_direction", b"wind_direction", "wind_gust", b"wind_gust", "wind_lull", b"wind_lull", "wind_speed", b"wind_speed"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_barometric_pressure", b"_barometric_pressure", "_current", b"_current", "_distance", b"_distance", "_gas_resistance", b"_gas_resistance", "_iaq", b"_iaq", "_ir_lux", b"_ir_lux", "_lux", b"_lux", "_radiation", b"_radiation", "_rainfall_1h", b"_rainfall_1h", "_rainfall_24h", b"_rainfall_24h", "_relative_humidity", b"_relative_humidity", "_sensor", b"_sensor", "_temperature", b"_temperature", "_uv_lux", b"_uv_lux", "_voltage", b"_voltage", "_weight", b"_weight", "_white_lux", b"_white_lux", "_wind_direction", b"_wind_direction", "_wind_gust", b"_wind_gust", "_wind_lull", b"_wind_lull", "_wind_speed", b"_wind_speed", "barometric_pressure", b"barometric_pressure", "current", b"current", "distance", b"distance", "gas_resistance", b"gas_resistance", "iaq", b"iaq", "ir_lux", b"ir_lux", "lux", b"lux", "radiation", b"radiation", "rainfall_1h", b"rainfall_1h", "rainfall_24h", b"rainfall_24h", "relative_humidity", b"relative_humidity", "sensor", b"sensor", "temperature", b"temperature", "uv_lux", b"uv_lux", "voltage", b"voltage", "weight", b"weight", "white_lux", b"white_lux", "wind_direction", b"wind_direction", "wind_gust", b"wind_gust", "wind_lull", b"wind_lull", "wind_speed", b"wind_speed"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_barometric_pressure", b"_barometric_pressure", "_current", b"_current", "_distance", b"_distance", "_gas_resistance", b"_gas_resistance", "_iaq", b"_iaq", "_ir_lux", b"_ir_lux", "_lux", b"_lux", "_radiation", b"_radiation", "_rainfall_1h", b"_rainfall_1h", "_rainfall_24h", b"_rainfall_24h", "_relative_humidity", b"_relative_humidity", "_sensor", b"_sensor", "_temperature", b"_temperature", "_uv_lux", b"_uv_lux", "_voltage", b"_voltage", "_weight", b"_weight", "_white_lux", b"_white_lux", "_wind_direction", b"_wind_direction", "_wind_gust", b"_wind_gust", "_wind_lull", b"_wind_lull", "_wind_speed", b"_wind_speed", "barometric_pressure", b"barometric_pressure", "current", b"current", "distance", b"distance", "gas_resistance", b"gas_resistance", "iaq", b"iaq", "ir_lux", b"ir_lux", "lux", b"lux", "radiation", b"radiation", "rainfall_1h", b"rainfall_1h", "rainfall_24h", b"rainfall_24h", "relative_humidity", b"relative_humidity", "sensor", b"sensor", "temperature", b"temperature", "uv_lux", b"uv_lux", "voltage", b"voltage", "weight", b"weight", "white_lux", b"white_lux", "wind_direction", b"wind_direction", "wind_gust", b"wind_gust", "wind_lull", b"wind_lull", "wind_speed", b"wind_speed"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_barometric_pressure", b"_barometric_pressure"]) -> typing.Literal["barometric_pressure"] | None: ...
     @typing.overload
@@ -563,9 +569,7 @@ class EnvironmentMetrics(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_relative_humidity", b"_relative_humidity"]) -> typing.Literal["relative_humidity"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_soil_moisture", b"_soil_moisture"]) -> typing.Literal["soil_moisture"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_soil_temperature", b"_soil_temperature"]) -> typing.Literal["soil_temperature"] | None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_sensor", b"_sensor"]) -> typing.Literal["sensor"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_temperature", b"_temperature"]) -> typing.Literal["temperature"] | None: ...
     @typing.overload
@@ -673,6 +677,7 @@ class AirQualityMetrics(google.protobuf.message.Message):
     PARTICLES_50UM_FIELD_NUMBER: builtins.int
     PARTICLES_100UM_FIELD_NUMBER: builtins.int
     CO2_FIELD_NUMBER: builtins.int
+    SENSOR_FIELD_NUMBER: builtins.int
     pm10_standard: builtins.int
     """
     Concentration Units Standard PM1.0
@@ -725,6 +730,10 @@ class AirQualityMetrics(google.protobuf.message.Message):
     """
     10.0um Particle Count
     """
+    sensor: global___TelemetrySensorType.ValueType
+    """
+    Sensor type
+    """
     def __init__(
         self,
         *,
@@ -741,9 +750,10 @@ class AirQualityMetrics(google.protobuf.message.Message):
         particles_50um: builtins.int | None = ...,
         particles_100um: builtins.int | None = ...,
         co2: builtins.int | None = ...,
+        sensor: global___TelemetrySensorType.ValueType | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_co2", b"_co2", "_particles_03um", b"_particles_03um", "_particles_05um", b"_particles_05um", "_particles_100um", b"_particles_100um", "_particles_10um", b"_particles_10um", "_particles_25um", b"_particles_25um", "_particles_50um", b"_particles_50um", "_pm100_environmental", b"_pm100_environmental", "_pm100_standard", b"_pm100_standard", "_pm10_environmental", b"_pm10_environmental", "_pm10_standard", b"_pm10_standard", "_pm25_environmental", b"_pm25_environmental", "_pm25_standard", b"_pm25_standard", "co2", b"co2", "particles_03um", b"particles_03um", "particles_05um", b"particles_05um", "particles_100um", b"particles_100um", "particles_10um", b"particles_10um", "particles_25um", b"particles_25um", "particles_50um", b"particles_50um", "pm100_environmental", b"pm100_environmental", "pm100_standard", b"pm100_standard", "pm10_environmental", b"pm10_environmental", "pm10_standard", b"pm10_standard", "pm25_environmental", b"pm25_environmental", "pm25_standard", b"pm25_standard"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_co2", b"_co2", "_particles_03um", b"_particles_03um", "_particles_05um", b"_particles_05um", "_particles_100um", b"_particles_100um", "_particles_10um", b"_particles_10um", "_particles_25um", b"_particles_25um", "_particles_50um", b"_particles_50um", "_pm100_environmental", b"_pm100_environmental", "_pm100_standard", b"_pm100_standard", "_pm10_environmental", b"_pm10_environmental", "_pm10_standard", b"_pm10_standard", "_pm25_environmental", b"_pm25_environmental", "_pm25_standard", b"_pm25_standard", "co2", b"co2", "particles_03um", b"particles_03um", "particles_05um", b"particles_05um", "particles_100um", b"particles_100um", "particles_10um", b"particles_10um", "particles_25um", b"particles_25um", "particles_50um", b"particles_50um", "pm100_environmental", b"pm100_environmental", "pm100_standard", b"pm100_standard", "pm10_environmental", b"pm10_environmental", "pm10_standard", b"pm10_standard", "pm25_environmental", b"pm25_environmental", "pm25_standard", b"pm25_standard"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_co2", b"_co2", "_particles_03um", b"_particles_03um", "_particles_05um", b"_particles_05um", "_particles_100um", b"_particles_100um", "_particles_10um", b"_particles_10um", "_particles_25um", b"_particles_25um", "_particles_50um", b"_particles_50um", "_pm100_environmental", b"_pm100_environmental", "_pm100_standard", b"_pm100_standard", "_pm10_environmental", b"_pm10_environmental", "_pm10_standard", b"_pm10_standard", "_pm25_environmental", b"_pm25_environmental", "_pm25_standard", b"_pm25_standard", "_sensor", b"_sensor", "co2", b"co2", "particles_03um", b"particles_03um", "particles_05um", b"particles_05um", "particles_100um", b"particles_100um", "particles_10um", b"particles_10um", "particles_25um", b"particles_25um", "particles_50um", b"particles_50um", "pm100_environmental", b"pm100_environmental", "pm100_standard", b"pm100_standard", "pm10_environmental", b"pm10_environmental", "pm10_standard", b"pm10_standard", "pm25_environmental", b"pm25_environmental", "pm25_standard", b"pm25_standard", "sensor", b"sensor"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_co2", b"_co2", "_particles_03um", b"_particles_03um", "_particles_05um", b"_particles_05um", "_particles_100um", b"_particles_100um", "_particles_10um", b"_particles_10um", "_particles_25um", b"_particles_25um", "_particles_50um", b"_particles_50um", "_pm100_environmental", b"_pm100_environmental", "_pm100_standard", b"_pm100_standard", "_pm10_environmental", b"_pm10_environmental", "_pm10_standard", b"_pm10_standard", "_pm25_environmental", b"_pm25_environmental", "_pm25_standard", b"_pm25_standard", "_sensor", b"_sensor", "co2", b"co2", "particles_03um", b"particles_03um", "particles_05um", b"particles_05um", "particles_100um", b"particles_100um", "particles_10um", b"particles_10um", "particles_25um", b"particles_25um", "particles_50um", b"particles_50um", "pm100_environmental", b"pm100_environmental", "pm100_standard", b"pm100_standard", "pm10_environmental", b"pm10_environmental", "pm10_standard", b"pm10_standard", "pm25_environmental", b"pm25_environmental", "pm25_standard", b"pm25_standard", "sensor", b"sensor"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_co2", b"_co2"]) -> typing.Literal["co2"] | None: ...
     @typing.overload
@@ -770,6 +780,8 @@ class AirQualityMetrics(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing.Literal["_pm25_environmental", b"_pm25_environmental"]) -> typing.Literal["pm25_environmental"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_pm25_standard", b"_pm25_standard"]) -> typing.Literal["pm25_standard"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_sensor", b"_sensor"]) -> typing.Literal["sensor"] | None: ...
 
 global___AirQualityMetrics = AirQualityMetrics
 
@@ -798,7 +810,8 @@ class LocalStats(google.protobuf.message.Message):
     """
     channel_utilization: builtins.float
     """
-    Utilization for the current channel, including well formed TX, RX and malformed RX (aka noise).
+    Utilization for the current channel, including well formed TX, RX and
+    malformed RX (aka noise).
     """
     air_util_tx: builtins.float
     """
@@ -826,17 +839,20 @@ class LocalStats(google.protobuf.message.Message):
     """
     num_rx_dupe: builtins.int
     """
-    Number of received packets that were duplicates (due to multiple nodes relaying).
-    If this number is high, there are nodes in the mesh relaying packets when it's unnecessary, for example due to the ROUTER/REPEATER role.
+    Number of received packets that were duplicates (due to multiple nodes
+    relaying). If this number is high, there are nodes in the mesh relaying
+    packets when it's unnecessary, for example due to the ROUTER/REPEATER role.
     """
     num_tx_relay: builtins.int
     """
-    Number of packets we transmitted that were a relay for others (not originating from ourselves).
+    Number of packets we transmitted that were a relay for others (not
+    originating from ourselves).
     """
     num_tx_relay_canceled: builtins.int
     """
-    Number of times we canceled a packet to be relayed, because someone else did it before us.
-    This will always be zero for ROUTERs/REPEATERs. If this number is high, some other node(s) is/are relaying faster than you.
+    Number of times we canceled a packet to be relayed, because someone else
+    did it before us. This will always be zero for ROUTERs/REPEATERs. If this
+    number is high, some other node(s) is/are relaying faster than you.
     """
     def __init__(
         self,
@@ -899,6 +915,123 @@ class HealthMetrics(google.protobuf.message.Message):
 global___HealthMetrics = HealthMetrics
 
 @typing.final
+class ErrorMetrics(google.protobuf.message.Message):
+    """
+    Error rate reporting from a device over the mesh
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    COLLISION_RATE_FIELD_NUMBER: builtins.int
+    NODE_REACH_FIELD_NUMBER: builtins.int
+    NUM_NODES_FIELD_NUMBER: builtins.int
+    USEFULNESS_FIELD_NUMBER: builtins.int
+    AVG_DELAY_FIELD_NUMBER: builtins.int
+    PERIOD_FIELD_NUMBER: builtins.int
+    NOROUTE_FIELD_NUMBER: builtins.int
+    NAKS_FIELD_NUMBER: builtins.int
+    TIMEOUTS_FIELD_NUMBER: builtins.int
+    MAX_RETRANSMIT_FIELD_NUMBER: builtins.int
+    NO_CHANNEL_FIELD_NUMBER: builtins.int
+    TOO_LARGE_FIELD_NUMBER: builtins.int
+    collision_rate: builtins.float
+    """
+    How often packets collided (percent) over the module's time period
+    """
+    node_reach: builtins.float
+    """
+    How many nodes are online out of total nodes (percent) for the modules time
+    period
+    """
+    num_nodes: builtins.int
+    """
+    How many nodes are there total?
+    """
+    usefulness: builtins.float
+    """
+    How many packets contain new data in all packets seen (percent) over the
+    module's time period
+    """
+    avg_delay: builtins.int
+    """
+    How long did a packet have to delay on average (ms) over the module's time
+    period
+    """
+    period: builtins.int
+    """
+    Time period (seconds) for measurements which occur, also the timeout for
+    how often the module collects and sends data
+    """
+    noroute: builtins.int
+    """
+    Count of no route errors
+    """
+    naks: builtins.int
+    """
+    Count of NAK errors
+    """
+    timeouts: builtins.int
+    """
+    Count of timeout errors
+    """
+    max_retransmit: builtins.int
+    """
+    Count of max retransmit errors
+    """
+    no_channel: builtins.int
+    """
+    Count of no channel errors
+    """
+    too_large: builtins.int
+    """
+    Count of too large errors
+    """
+    def __init__(
+        self,
+        *,
+        collision_rate: builtins.float | None = ...,
+        node_reach: builtins.float | None = ...,
+        num_nodes: builtins.int | None = ...,
+        usefulness: builtins.float | None = ...,
+        avg_delay: builtins.int | None = ...,
+        period: builtins.int | None = ...,
+        noroute: builtins.int | None = ...,
+        naks: builtins.int | None = ...,
+        timeouts: builtins.int | None = ...,
+        max_retransmit: builtins.int | None = ...,
+        no_channel: builtins.int | None = ...,
+        too_large: builtins.int | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["_avg_delay", b"_avg_delay", "_collision_rate", b"_collision_rate", "_max_retransmit", b"_max_retransmit", "_naks", b"_naks", "_no_channel", b"_no_channel", "_node_reach", b"_node_reach", "_noroute", b"_noroute", "_num_nodes", b"_num_nodes", "_period", b"_period", "_timeouts", b"_timeouts", "_too_large", b"_too_large", "_usefulness", b"_usefulness", "avg_delay", b"avg_delay", "collision_rate", b"collision_rate", "max_retransmit", b"max_retransmit", "naks", b"naks", "no_channel", b"no_channel", "node_reach", b"node_reach", "noroute", b"noroute", "num_nodes", b"num_nodes", "period", b"period", "timeouts", b"timeouts", "too_large", b"too_large", "usefulness", b"usefulness"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_avg_delay", b"_avg_delay", "_collision_rate", b"_collision_rate", "_max_retransmit", b"_max_retransmit", "_naks", b"_naks", "_no_channel", b"_no_channel", "_node_reach", b"_node_reach", "_noroute", b"_noroute", "_num_nodes", b"_num_nodes", "_period", b"_period", "_timeouts", b"_timeouts", "_too_large", b"_too_large", "_usefulness", b"_usefulness", "avg_delay", b"avg_delay", "collision_rate", b"collision_rate", "max_retransmit", b"max_retransmit", "naks", b"naks", "no_channel", b"no_channel", "node_reach", b"node_reach", "noroute", b"noroute", "num_nodes", b"num_nodes", "period", b"period", "timeouts", b"timeouts", "too_large", b"too_large", "usefulness", b"usefulness"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_avg_delay", b"_avg_delay"]) -> typing.Literal["avg_delay"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_collision_rate", b"_collision_rate"]) -> typing.Literal["collision_rate"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_max_retransmit", b"_max_retransmit"]) -> typing.Literal["max_retransmit"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_naks", b"_naks"]) -> typing.Literal["naks"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_no_channel", b"_no_channel"]) -> typing.Literal["no_channel"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_node_reach", b"_node_reach"]) -> typing.Literal["node_reach"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_noroute", b"_noroute"]) -> typing.Literal["noroute"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_num_nodes", b"_num_nodes"]) -> typing.Literal["num_nodes"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_period", b"_period"]) -> typing.Literal["period"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_timeouts", b"_timeouts"]) -> typing.Literal["timeouts"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_too_large", b"_too_large"]) -> typing.Literal["too_large"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_usefulness", b"_usefulness"]) -> typing.Literal["usefulness"] | None: ...
+
+global___ErrorMetrics = ErrorMetrics
+
+@typing.final
 class Telemetry(google.protobuf.message.Message):
     """
     Types of Measurements the telemetry module is equipped to handle
@@ -913,6 +1046,7 @@ class Telemetry(google.protobuf.message.Message):
     POWER_METRICS_FIELD_NUMBER: builtins.int
     LOCAL_STATS_FIELD_NUMBER: builtins.int
     HEALTH_METRICS_FIELD_NUMBER: builtins.int
+    ERROR_METRICS_FIELD_NUMBER: builtins.int
     time: builtins.int
     """
     Seconds since 1970 - or 0 for unknown/unset
@@ -953,6 +1087,12 @@ class Telemetry(google.protobuf.message.Message):
         Health telemetry metrics
         """
 
+    @property
+    def error_metrics(self) -> global___ErrorMetrics:
+        """
+        Error telemetry metrics
+        """
+
     def __init__(
         self,
         *,
@@ -963,10 +1103,11 @@ class Telemetry(google.protobuf.message.Message):
         power_metrics: global___PowerMetrics | None = ...,
         local_stats: global___LocalStats | None = ...,
         health_metrics: global___HealthMetrics | None = ...,
+        error_metrics: global___ErrorMetrics | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["air_quality_metrics", b"air_quality_metrics", "device_metrics", b"device_metrics", "environment_metrics", b"environment_metrics", "health_metrics", b"health_metrics", "local_stats", b"local_stats", "power_metrics", b"power_metrics", "variant", b"variant"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["air_quality_metrics", b"air_quality_metrics", "device_metrics", b"device_metrics", "environment_metrics", b"environment_metrics", "health_metrics", b"health_metrics", "local_stats", b"local_stats", "power_metrics", b"power_metrics", "time", b"time", "variant", b"variant"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing.Literal["variant", b"variant"]) -> typing.Literal["device_metrics", "environment_metrics", "air_quality_metrics", "power_metrics", "local_stats", "health_metrics"] | None: ...
+    def HasField(self, field_name: typing.Literal["air_quality_metrics", b"air_quality_metrics", "device_metrics", b"device_metrics", "environment_metrics", b"environment_metrics", "error_metrics", b"error_metrics", "health_metrics", b"health_metrics", "local_stats", b"local_stats", "power_metrics", b"power_metrics", "variant", b"variant"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["air_quality_metrics", b"air_quality_metrics", "device_metrics", b"device_metrics", "environment_metrics", b"environment_metrics", "error_metrics", b"error_metrics", "health_metrics", b"health_metrics", "local_stats", b"local_stats", "power_metrics", b"power_metrics", "time", b"time", "variant", b"variant"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["variant", b"variant"]) -> typing.Literal["device_metrics", "environment_metrics", "air_quality_metrics", "power_metrics", "local_stats", "health_metrics", "error_metrics"] | None: ...
 
 global___Telemetry = Telemetry
 

@@ -615,7 +615,7 @@ class Config(google.protobuf.message.Message):
         POWERMON_ENABLES_FIELD_NUMBER: builtins.int
         is_power_saving: builtins.bool
         """
-        Description: Will sleep everything as much as possible, for the tracker and sensor role this will also include the lora radio.
+        Description: Will sleep everything as much as possible, for the tracker and sensor role this will also include the lora radio. 
         Don't use this setting if you want to use your device with the phone apps or are using a device without a user button.
         Technical Details: Works for ESP32 devices and NRF52 devices in the Sensor or Tracker roles
         """
@@ -796,7 +796,7 @@ class Config(google.protobuf.message.Message):
         """
         ntp_server: builtins.str
         """
-        NTP server to use if WiFi is conneced, defaults to `meshtastic.pool.ntp.org`
+        NTP server to use if WiFi is conneced, defaults to `0.pool.ntp.org`
         """
         eth_enabled: builtins.bool
         """
@@ -1118,7 +1118,6 @@ class Config(google.protobuf.message.Message):
         HEADING_BOLD_FIELD_NUMBER: builtins.int
         WAKE_ON_TAP_OR_MOTION_FIELD_NUMBER: builtins.int
         COMPASS_ORIENTATION_FIELD_NUMBER: builtins.int
-        USE_12H_CLOCK_FIELD_NUMBER: builtins.int
         screen_on_secs: builtins.int
         """
         Number of seconds the screen stays on after pressing the user button or receiving a message
@@ -1166,11 +1165,6 @@ class Config(google.protobuf.message.Message):
         """
         Indicates how to rotate or invert the compass output to accurate display on the display.
         """
-        use_12h_clock: builtins.bool
-        """
-        If false (default), the device will display the time in 24-hour format on screen.
-        If true, the device will display the time in 12-hour format on screen.
-        """
         def __init__(
             self,
             *,
@@ -1185,9 +1179,8 @@ class Config(google.protobuf.message.Message):
             heading_bold: builtins.bool = ...,
             wake_on_tap_or_motion: builtins.bool = ...,
             compass_orientation: global___Config.DisplayConfig.CompassOrientation.ValueType = ...,
-            use_12h_clock: builtins.bool = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing.Literal["auto_screen_carousel_secs", b"auto_screen_carousel_secs", "compass_north_top", b"compass_north_top", "compass_orientation", b"compass_orientation", "displaymode", b"displaymode", "flip_screen", b"flip_screen", "gps_format", b"gps_format", "heading_bold", b"heading_bold", "oled", b"oled", "screen_on_secs", b"screen_on_secs", "units", b"units", "use_12h_clock", b"use_12h_clock", "wake_on_tap_or_motion", b"wake_on_tap_or_motion"]) -> None: ...
+        def ClearField(self, field_name: typing.Literal["auto_screen_carousel_secs", b"auto_screen_carousel_secs", "compass_north_top", b"compass_north_top", "compass_orientation", b"compass_orientation", "displaymode", b"displaymode", "flip_screen", b"flip_screen", "gps_format", b"gps_format", "heading_bold", b"heading_bold", "oled", b"oled", "screen_on_secs", b"screen_on_secs", "units", b"units", "wake_on_tap_or_motion", b"wake_on_tap_or_motion"]) -> None: ...
 
     @typing.final
     class LoRaConfig(google.protobuf.message.Message):

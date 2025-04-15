@@ -83,8 +83,9 @@ class ModuleConfig(google.protobuf.message.Message):
         MAP_REPORT_SETTINGS_FIELD_NUMBER: builtins.int
         enabled: builtins.bool
         """
-        If a meshtastic node is able to reach the internet it will normally attempt to gateway any channels that are marked as
-        is_uplink_enabled or is_downlink_enabled.
+        If a meshtastic node is able to reach the internet it will normally
+        attempt to gateway any channels that are marked as is_uplink_enabled or
+        is_downlink_enabled.
         """
         address: builtins.str
         """
@@ -95,20 +96,23 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         MQTT username to use (most useful for a custom MQTT server).
         If using a custom server, this will be honoured even if empty.
-        If using the default server, this will only be honoured if set, otherwise the device will use the default username
+        If using the default server, this will only be honoured if set, otherwise
+        the device will use the default username
         """
         password: builtins.str
         """
         MQTT password to use (most useful for a custom MQTT server).
         If using a custom server, this will be honoured even if empty.
-        If using the default server, this will only be honoured if set, otherwise the device will use the default password
+        If using the default server, this will only be honoured if set, otherwise
+        the device will use the default password
         """
         encryption_enabled: builtins.bool
         """
         Whether to send encrypted or decrypted packets to MQTT.
         This parameter is only honoured if you also set server
-        (the default official mqtt.meshtastic.org server can handle encrypted packets)
-        Decrypted packets may be useful for external systems that want to consume meshtastic packets
+        (the default official mqtt.meshtastic.org server can handle encrypted
+        packets) Decrypted packets may be useful for external systems that want
+        to consume meshtastic packets
         """
         json_enabled: builtins.bool
         """
@@ -121,15 +125,18 @@ class ModuleConfig(google.protobuf.message.Message):
         root: builtins.str
         """
         The root topic to use for MQTT messages. Default is "msh".
-        This is useful if you want to use a single MQTT server for multiple meshtastic networks and separate them via ACLs
+        This is useful if you want to use a single MQTT server for multiple
+        meshtastic networks and separate them via ACLs
         """
         proxy_to_client_enabled: builtins.bool
         """
-        If true, we can use the connected phone / client to proxy messages to MQTT instead of a direct connection
+        If true, we can use the connected phone / client to proxy messages to
+        MQTT instead of a direct connection
         """
         map_reporting_enabled: builtins.bool
         """
-        If true, we will periodically report unencrypted information about our node to a map via MQTT
+        If true, we will periodically report unencrypted information about our
+        node to a map via MQTT
         """
         @property
         def map_report_settings(self) -> global___ModuleConfig.MapReportSettings:
@@ -158,7 +165,8 @@ class ModuleConfig(google.protobuf.message.Message):
     @typing.final
     class MapReportSettings(google.protobuf.message.Message):
         """
-        Settings for reporting unencrypted information about our node to a map via MQTT
+        Settings for reporting unencrypted information about our node to a map via
+        MQTT
         """
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -171,7 +179,8 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         position_precision: builtins.int
         """
-        Bits of precision for the location sent (default of 32 is full precision).
+        Bits of precision for the location sent (default of 32 is full
+        precision).
         """
         def __init__(
             self,
@@ -198,7 +207,8 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         allow_undefined_pin_access: builtins.bool
         """
-        Whether the Module allows consumers to read / write to pins not defined in available_pins
+        Whether the Module allows consumers to read / write to pins not defined
+        in available_pins
         """
         @property
         def available_pins(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___RemoteHardwarePin]:
@@ -237,8 +247,9 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         transmit_over_lora: builtins.bool
         """
-        Whether in addition to sending it to MQTT and the PhoneAPI, our NeighborInfo should be transmitted over LoRa.
-        Note that this is not available on a channel with default key and name.
+        Whether in addition to sending it to MQTT and the PhoneAPI, our
+        NeighborInfo should be transmitted over LoRa. Note that this is not
+        available on a channel with default key and name.
         """
         def __init__(
             self,
@@ -608,8 +619,9 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         override_console_serial_port: builtins.bool
         """
-        Overrides the platform's defacto Serial port instance to use with Serial module config settings
-        This is currently only usable in output modes like NMEA / CalTopo and may behave strangely or not work at all in other modes
+        Overrides the platform's defacto Serial port instance to use with Serial
+        module config settings This is currently only usable in output modes like
+        NMEA / CalTopo and may behave strangely or not work at all in other modes
         Existing logging over the Serial Console will still be present
         """
         def __init__(
@@ -717,8 +729,9 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         use_i2s_as_buzzer: builtins.bool
         """
-        When true, enables devices with native I2S audio output to use the RTTTL over speaker like a buzzer
-        T-Watch S3 and T-Deck for example have this capability
+        When true, enables devices with native I2S audio output to use the RTTTL
+        over speaker like a buzzer T-Watch S3 and T-Deck for example have this
+        capability
         """
         def __init__(
             self,
@@ -777,7 +790,8 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         is_server: builtins.bool
         """
-        Set to true to let this node act as a server that stores received messages and resends them upon request.
+        Set to true to let this node act as a server that stores received
+        messages and resends them upon request.
         """
         def __init__(
             self,
@@ -845,6 +859,8 @@ class ModuleConfig(google.protobuf.message.Message):
         HEALTH_MEASUREMENT_ENABLED_FIELD_NUMBER: builtins.int
         HEALTH_UPDATE_INTERVAL_FIELD_NUMBER: builtins.int
         HEALTH_SCREEN_ENABLED_FIELD_NUMBER: builtins.int
+        ERROR_MEASUREMENT_ENABLED_FIELD_NUMBER: builtins.int
+        ERROR_UPDATE_INTERVAL_FIELD_NUMBER: builtins.int
         device_update_interval: builtins.int
         """
         Interval in seconds of how often we should try to send our
@@ -905,6 +921,16 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         Enable/Disable the health telemetry module on-device display
         """
+        error_measurement_enabled: builtins.bool
+        """
+        Preferences for the Error Telemetry Module
+        Enable/Disable this telemetry
+        """
+        error_update_interval: builtins.int
+        """
+        Error metric interval in seconds of how often we should try ot send our
+        metrics to the mesh
+        """
         def __init__(
             self,
             *,
@@ -921,13 +947,15 @@ class ModuleConfig(google.protobuf.message.Message):
             health_measurement_enabled: builtins.bool = ...,
             health_update_interval: builtins.int = ...,
             health_screen_enabled: builtins.bool = ...,
+            error_measurement_enabled: builtins.bool = ...,
+            error_update_interval: builtins.int = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing.Literal["air_quality_enabled", b"air_quality_enabled", "air_quality_interval", b"air_quality_interval", "device_update_interval", b"device_update_interval", "environment_display_fahrenheit", b"environment_display_fahrenheit", "environment_measurement_enabled", b"environment_measurement_enabled", "environment_screen_enabled", b"environment_screen_enabled", "environment_update_interval", b"environment_update_interval", "health_measurement_enabled", b"health_measurement_enabled", "health_screen_enabled", b"health_screen_enabled", "health_update_interval", b"health_update_interval", "power_measurement_enabled", b"power_measurement_enabled", "power_screen_enabled", b"power_screen_enabled", "power_update_interval", b"power_update_interval"]) -> None: ...
+        def ClearField(self, field_name: typing.Literal["air_quality_enabled", b"air_quality_enabled", "air_quality_interval", b"air_quality_interval", "device_update_interval", b"device_update_interval", "environment_display_fahrenheit", b"environment_display_fahrenheit", "environment_measurement_enabled", b"environment_measurement_enabled", "environment_screen_enabled", b"environment_screen_enabled", "environment_update_interval", b"environment_update_interval", "error_measurement_enabled", b"error_measurement_enabled", "error_update_interval", b"error_update_interval", "health_measurement_enabled", b"health_measurement_enabled", "health_screen_enabled", b"health_screen_enabled", "health_update_interval", b"health_update_interval", "power_measurement_enabled", b"power_measurement_enabled", "power_screen_enabled", b"power_screen_enabled", "power_update_interval", b"power_update_interval"]) -> None: ...
 
     @typing.final
     class CannedMessageConfig(google.protobuf.message.Message):
         """
-        Canned Messages Module Config
+        TODO: REPLACE
         """
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1022,7 +1050,8 @@ class ModuleConfig(google.protobuf.message.Message):
         SEND_BELL_FIELD_NUMBER: builtins.int
         rotary1_enabled: builtins.bool
         """
-        Enable the rotary encoder #1. This is a 'dumb' encoder sending pulses on both A and B pins while rotating.
+        Enable the rotary encoder #1. This is a 'dumb' encoder sending pulses on
+        both A and B pins while rotating.
         """
         inputbroker_pin_a: builtins.int
         """
@@ -1050,7 +1079,8 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         updown1_enabled: builtins.bool
         """
-        Enable the Up/Down/Select input device. Can be RAK rotary encoder or 3 buttons. Uses the a/b/press definitions from inputbroker.
+        Enable the Up/Down/Select input device. Can be RAK rotary encoder or 3
+        buttons. Uses the a/b/press definitions from inputbroker.
         """
         enabled: builtins.bool
         """
@@ -1059,7 +1089,8 @@ class ModuleConfig(google.protobuf.message.Message):
         allow_input_source: builtins.str
         """
         Input event origin accepted by the canned message module.
-        Can be e.g. "rotEnc1", "upDownEnc1", "scanAndSelect", "cardkb", "serialkb", or keyword "_any"
+        Can be e.g. "rotEnc1", "upDownEnc1", "scanAndSelect", "cardkb",
+        "serialkb", or keyword "_any"
         """
         send_bell: builtins.bool
         """
@@ -1086,7 +1117,8 @@ class ModuleConfig(google.protobuf.message.Message):
     @typing.final
     class AmbientLightingConfig(google.protobuf.message.Message):
         """
-        Ambient Lighting Module - Settings for control of onboard LEDs to allow users to adjust the brightness levels and respective color levels.
+        Ambient Lighting Module - Settings for control of onboard LEDs to allow
+        users to adjust the brightness levels and respective color levels.
         Initially created for the RAK14001 RGB LED module.
         """
 
