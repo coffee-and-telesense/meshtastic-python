@@ -52,7 +52,7 @@ DIGITAL_WRITE: RemoteHardwarePinType.ValueType  # 2
 """
 GPIO pin can be written to (high / low)
 """
-global___RemoteHardwarePinType = RemoteHardwarePinType
+Global___RemoteHardwarePinType: typing_extensions.TypeAlias = RemoteHardwarePinType
 
 @typing.final
 class ModuleConfig(google.protobuf.message.Message):
@@ -83,8 +83,9 @@ class ModuleConfig(google.protobuf.message.Message):
         MAP_REPORT_SETTINGS_FIELD_NUMBER: builtins.int
         enabled: builtins.bool
         """
-        If a meshtastic node is able to reach the internet it will normally attempt to gateway any channels that are marked as
-        is_uplink_enabled or is_downlink_enabled.
+        If a meshtastic node is able to reach the internet it will normally
+        attempt to gateway any channels that are marked as is_uplink_enabled or
+        is_downlink_enabled.
         """
         address: builtins.str
         """
@@ -95,20 +96,23 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         MQTT username to use (most useful for a custom MQTT server).
         If using a custom server, this will be honoured even if empty.
-        If using the default server, this will only be honoured if set, otherwise the device will use the default username
+        If using the default server, this will only be honoured if set, otherwise
+        the device will use the default username
         """
         password: builtins.str
         """
         MQTT password to use (most useful for a custom MQTT server).
         If using a custom server, this will be honoured even if empty.
-        If using the default server, this will only be honoured if set, otherwise the device will use the default password
+        If using the default server, this will only be honoured if set, otherwise
+        the device will use the default password
         """
         encryption_enabled: builtins.bool
         """
         Whether to send encrypted or decrypted packets to MQTT.
         This parameter is only honoured if you also set server
-        (the default official mqtt.meshtastic.org server can handle encrypted packets)
-        Decrypted packets may be useful for external systems that want to consume meshtastic packets
+        (the default official mqtt.meshtastic.org server can handle encrypted
+        packets) Decrypted packets may be useful for external systems that want
+        to consume meshtastic packets
         """
         json_enabled: builtins.bool
         """
@@ -121,18 +125,21 @@ class ModuleConfig(google.protobuf.message.Message):
         root: builtins.str
         """
         The root topic to use for MQTT messages. Default is "msh".
-        This is useful if you want to use a single MQTT server for multiple meshtastic networks and separate them via ACLs
+        This is useful if you want to use a single MQTT server for multiple
+        meshtastic networks and separate them via ACLs
         """
         proxy_to_client_enabled: builtins.bool
         """
-        If true, we can use the connected phone / client to proxy messages to MQTT instead of a direct connection
+        If true, we can use the connected phone / client to proxy messages to
+        MQTT instead of a direct connection
         """
         map_reporting_enabled: builtins.bool
         """
-        If true, we will periodically report unencrypted information about our node to a map via MQTT
+        If true, we will periodically report unencrypted information about our
+        node to a map via MQTT
         """
         @property
-        def map_report_settings(self) -> global___ModuleConfig.MapReportSettings:
+        def map_report_settings(self) -> Global___ModuleConfig.MapReportSettings:
             """
             Settings for reporting information about our node to a map via MQTT
             """
@@ -150,7 +157,7 @@ class ModuleConfig(google.protobuf.message.Message):
             root: builtins.str = ...,
             proxy_to_client_enabled: builtins.bool = ...,
             map_reporting_enabled: builtins.bool = ...,
-            map_report_settings: global___ModuleConfig.MapReportSettings | None = ...,
+            map_report_settings: Global___ModuleConfig.MapReportSettings | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing.Literal["map_report_settings", b"map_report_settings"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing.Literal["address", b"address", "enabled", b"enabled", "encryption_enabled", b"encryption_enabled", "json_enabled", b"json_enabled", "map_report_settings", b"map_report_settings", "map_reporting_enabled", b"map_reporting_enabled", "password", b"password", "proxy_to_client_enabled", b"proxy_to_client_enabled", "root", b"root", "tls_enabled", b"tls_enabled", "username", b"username"]) -> None: ...
@@ -158,34 +165,30 @@ class ModuleConfig(google.protobuf.message.Message):
     @typing.final
     class MapReportSettings(google.protobuf.message.Message):
         """
-        Settings for reporting unencrypted information about our node to a map via MQTT
+        Settings for reporting unencrypted information about our node to a map via
+        MQTT
         """
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
         PUBLISH_INTERVAL_SECS_FIELD_NUMBER: builtins.int
         POSITION_PRECISION_FIELD_NUMBER: builtins.int
-        SHOULD_REPORT_LOCATION_FIELD_NUMBER: builtins.int
         publish_interval_secs: builtins.int
         """
         How often we should report our info to the map (in seconds)
         """
         position_precision: builtins.int
         """
-        Bits of precision for the location sent (default of 32 is full precision).
-        """
-        should_report_location: builtins.bool
-        """
-        Whether we have opted-in to report our location to the map
+        Bits of precision for the location sent (default of 32 is full
+        precision).
         """
         def __init__(
             self,
             *,
             publish_interval_secs: builtins.int = ...,
             position_precision: builtins.int = ...,
-            should_report_location: builtins.bool = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing.Literal["position_precision", b"position_precision", "publish_interval_secs", b"publish_interval_secs", "should_report_location", b"should_report_location"]) -> None: ...
+        def ClearField(self, field_name: typing.Literal["position_precision", b"position_precision", "publish_interval_secs", b"publish_interval_secs"]) -> None: ...
 
     @typing.final
     class RemoteHardwareConfig(google.protobuf.message.Message):
@@ -204,10 +207,11 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         allow_undefined_pin_access: builtins.bool
         """
-        Whether the Module allows consumers to read / write to pins not defined in available_pins
+        Whether the Module allows consumers to read / write to pins not defined
+        in available_pins
         """
         @property
-        def available_pins(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___RemoteHardwarePin]:
+        def available_pins(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___RemoteHardwarePin]:
             """
             Exposes the available pins to the mesh for reading and writing
             """
@@ -217,7 +221,7 @@ class ModuleConfig(google.protobuf.message.Message):
             *,
             enabled: builtins.bool = ...,
             allow_undefined_pin_access: builtins.bool = ...,
-            available_pins: collections.abc.Iterable[global___RemoteHardwarePin] | None = ...,
+            available_pins: collections.abc.Iterable[Global___RemoteHardwarePin] | None = ...,
         ) -> None: ...
         def ClearField(self, field_name: typing.Literal["allow_undefined_pin_access", b"allow_undefined_pin_access", "available_pins", b"available_pins", "enabled", b"enabled"]) -> None: ...
 
@@ -243,8 +247,9 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         transmit_over_lora: builtins.bool
         """
-        Whether in addition to sending it to MQTT and the PhoneAPI, our NeighborInfo should be transmitted over LoRa.
-        Note that this is not available on a channel with default key and name.
+        Whether in addition to sending it to MQTT and the PhoneAPI, our
+        NeighborInfo should be transmitted over LoRa. Note that this is not
+        available on a channel with default key and name.
         """
         def __init__(
             self,
@@ -343,7 +348,7 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         GPIO pin to monitor for state changes
         """
-        detection_trigger_type: global___ModuleConfig.DetectionSensorConfig.TriggerType.ValueType
+        detection_trigger_type: Global___ModuleConfig.DetectionSensorConfig.TriggerType.ValueType
         """
         The type of trigger event to be used
         """
@@ -361,7 +366,7 @@ class ModuleConfig(google.protobuf.message.Message):
             send_bell: builtins.bool = ...,
             name: builtins.str = ...,
             monitor_pin: builtins.int = ...,
-            detection_trigger_type: global___ModuleConfig.DetectionSensorConfig.TriggerType.ValueType = ...,
+            detection_trigger_type: Global___ModuleConfig.DetectionSensorConfig.TriggerType.ValueType = ...,
             use_pullup: builtins.bool = ...,
         ) -> None: ...
         def ClearField(self, field_name: typing.Literal["detection_trigger_type", b"detection_trigger_type", "enabled", b"enabled", "minimum_broadcast_secs", b"minimum_broadcast_secs", "monitor_pin", b"monitor_pin", "name", b"name", "send_bell", b"send_bell", "state_broadcast_secs", b"state_broadcast_secs", "use_pullup", b"use_pullup"]) -> None: ...
@@ -420,7 +425,7 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         PTT Pin
         """
-        bitrate: global___ModuleConfig.AudioConfig.Audio_Baud.ValueType
+        bitrate: Global___ModuleConfig.AudioConfig.Audio_Baud.ValueType
         """
         The audio sample rate to use for codec2
         """
@@ -445,7 +450,7 @@ class ModuleConfig(google.protobuf.message.Message):
             *,
             codec2_enabled: builtins.bool = ...,
             ptt_pin: builtins.int = ...,
-            bitrate: global___ModuleConfig.AudioConfig.Audio_Baud.ValueType = ...,
+            bitrate: Global___ModuleConfig.AudioConfig.Audio_Baud.ValueType = ...,
             i2s_ws: builtins.int = ...,
             i2s_sd: builtins.int = ...,
             i2s_din: builtins.int = ...,
@@ -560,14 +565,6 @@ class ModuleConfig(google.protobuf.message.Message):
             """NMEA messages specifically tailored for CalTopo"""
             WS85: ModuleConfig.SerialConfig._Serial_Mode.ValueType  # 6
             """Ecowitt WS85 weather station"""
-            VE_DIRECT: ModuleConfig.SerialConfig._Serial_Mode.ValueType  # 7
-            """VE.Direct is a serial protocol used by Victron Energy products
-            https://beta.ivc.no/wiki/index.php/Victron_VE_Direct_DIY_Cable
-            """
-            MS_CONFIG: ModuleConfig.SerialConfig._Serial_Mode.ValueType  # 8
-            """Used to configure and view some parameters of MeshSolar.
-            https://heltec.org/project/meshsolar/
-            """
 
         class Serial_Mode(_Serial_Mode, metaclass=_Serial_ModeEnumTypeWrapper):
             """
@@ -583,14 +580,6 @@ class ModuleConfig(google.protobuf.message.Message):
         """NMEA messages specifically tailored for CalTopo"""
         WS85: ModuleConfig.SerialConfig.Serial_Mode.ValueType  # 6
         """Ecowitt WS85 weather station"""
-        VE_DIRECT: ModuleConfig.SerialConfig.Serial_Mode.ValueType  # 7
-        """VE.Direct is a serial protocol used by Victron Energy products
-        https://beta.ivc.no/wiki/index.php/Victron_VE_Direct_DIY_Cable
-        """
-        MS_CONFIG: ModuleConfig.SerialConfig.Serial_Mode.ValueType  # 8
-        """Used to configure and view some parameters of MeshSolar.
-        https://heltec.org/project/meshsolar/
-        """
 
         ENABLED_FIELD_NUMBER: builtins.int
         ECHO_FIELD_NUMBER: builtins.int
@@ -616,7 +605,7 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         TX pin (should match Arduino gpio pin number)
         """
-        baud: global___ModuleConfig.SerialConfig.Serial_Baud.ValueType
+        baud: Global___ModuleConfig.SerialConfig.Serial_Baud.ValueType
         """
         Serial baud rate
         """
@@ -624,14 +613,15 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         TODO: REPLACE
         """
-        mode: global___ModuleConfig.SerialConfig.Serial_Mode.ValueType
+        mode: Global___ModuleConfig.SerialConfig.Serial_Mode.ValueType
         """
         Mode for serial module operation
         """
         override_console_serial_port: builtins.bool
         """
-        Overrides the platform's defacto Serial port instance to use with Serial module config settings
-        This is currently only usable in output modes like NMEA / CalTopo and may behave strangely or not work at all in other modes
+        Overrides the platform's defacto Serial port instance to use with Serial
+        module config settings This is currently only usable in output modes like
+        NMEA / CalTopo and may behave strangely or not work at all in other modes
         Existing logging over the Serial Console will still be present
         """
         def __init__(
@@ -641,9 +631,9 @@ class ModuleConfig(google.protobuf.message.Message):
             echo: builtins.bool = ...,
             rxd: builtins.int = ...,
             txd: builtins.int = ...,
-            baud: global___ModuleConfig.SerialConfig.Serial_Baud.ValueType = ...,
+            baud: Global___ModuleConfig.SerialConfig.Serial_Baud.ValueType = ...,
             timeout: builtins.int = ...,
-            mode: global___ModuleConfig.SerialConfig.Serial_Mode.ValueType = ...,
+            mode: Global___ModuleConfig.SerialConfig.Serial_Mode.ValueType = ...,
             override_console_serial_port: builtins.bool = ...,
         ) -> None: ...
         def ClearField(self, field_name: typing.Literal["baud", b"baud", "echo", b"echo", "enabled", b"enabled", "mode", b"mode", "override_console_serial_port", b"override_console_serial_port", "rxd", b"rxd", "timeout", b"timeout", "txd", b"txd"]) -> None: ...
@@ -739,8 +729,9 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         use_i2s_as_buzzer: builtins.bool
         """
-        When true, enables devices with native I2S audio output to use the RTTTL over speaker like a buzzer
-        T-Watch S3 and T-Deck for example have this capability
+        When true, enables devices with native I2S audio output to use the RTTTL
+        over speaker like a buzzer T-Watch S3 and T-Deck for example have this
+        capability
         """
         def __init__(
             self,
@@ -799,7 +790,8 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         is_server: builtins.bool
         """
-        Set to true to let this node act as a server that stores received messages and resends them upon request.
+        Set to true to let this node act as a server that stores received
+        messages and resends them upon request.
         """
         def __init__(
             self,
@@ -824,7 +816,6 @@ class ModuleConfig(google.protobuf.message.Message):
         ENABLED_FIELD_NUMBER: builtins.int
         SENDER_FIELD_NUMBER: builtins.int
         SAVE_FIELD_NUMBER: builtins.int
-        CLEAR_ON_REBOOT_FIELD_NUMBER: builtins.int
         enabled: builtins.bool
         """
         Enable the Range Test Module
@@ -838,20 +829,14 @@ class ModuleConfig(google.protobuf.message.Message):
         Bool value indicating that this node should save a RangeTest.csv file.
         ESP32 Only
         """
-        clear_on_reboot: builtins.bool
-        """
-        Bool indicating that the node should cleanup / destroy it's RangeTest.csv file.
-        ESP32 Only
-        """
         def __init__(
             self,
             *,
             enabled: builtins.bool = ...,
             sender: builtins.int = ...,
             save: builtins.bool = ...,
-            clear_on_reboot: builtins.bool = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing.Literal["clear_on_reboot", b"clear_on_reboot", "enabled", b"enabled", "save", b"save", "sender", b"sender"]) -> None: ...
+        def ClearField(self, field_name: typing.Literal["enabled", b"enabled", "save", b"save", "sender", b"sender"]) -> None: ...
 
     @typing.final
     class TelemetryConfig(google.protobuf.message.Message):
@@ -874,7 +859,8 @@ class ModuleConfig(google.protobuf.message.Message):
         HEALTH_MEASUREMENT_ENABLED_FIELD_NUMBER: builtins.int
         HEALTH_UPDATE_INTERVAL_FIELD_NUMBER: builtins.int
         HEALTH_SCREEN_ENABLED_FIELD_NUMBER: builtins.int
-        DEVICE_TELEMETRY_ENABLED_FIELD_NUMBER: builtins.int
+        ERROR_MEASUREMENT_ENABLED_FIELD_NUMBER: builtins.int
+        ERROR_UPDATE_INTERVAL_FIELD_NUMBER: builtins.int
         device_update_interval: builtins.int
         """
         Interval in seconds of how often we should try to send our
@@ -935,10 +921,15 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         Enable/Disable the health telemetry module on-device display
         """
-        device_telemetry_enabled: builtins.bool
+        error_measurement_enabled: builtins.bool
         """
-        Enable/Disable the device telemetry module to send metrics to the mesh
-        Note: We will still send telemtry to the connected phone / client every minute over the API
+        Preferences for the Error Telemetry Module
+        Enable/Disable this telemetry
+        """
+        error_update_interval: builtins.int
+        """
+        Error metric interval in seconds of how often we should try ot send our
+        metrics to the mesh
         """
         def __init__(
             self,
@@ -956,14 +947,15 @@ class ModuleConfig(google.protobuf.message.Message):
             health_measurement_enabled: builtins.bool = ...,
             health_update_interval: builtins.int = ...,
             health_screen_enabled: builtins.bool = ...,
-            device_telemetry_enabled: builtins.bool = ...,
+            error_measurement_enabled: builtins.bool = ...,
+            error_update_interval: builtins.int = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing.Literal["air_quality_enabled", b"air_quality_enabled", "air_quality_interval", b"air_quality_interval", "device_telemetry_enabled", b"device_telemetry_enabled", "device_update_interval", b"device_update_interval", "environment_display_fahrenheit", b"environment_display_fahrenheit", "environment_measurement_enabled", b"environment_measurement_enabled", "environment_screen_enabled", b"environment_screen_enabled", "environment_update_interval", b"environment_update_interval", "health_measurement_enabled", b"health_measurement_enabled", "health_screen_enabled", b"health_screen_enabled", "health_update_interval", b"health_update_interval", "power_measurement_enabled", b"power_measurement_enabled", "power_screen_enabled", b"power_screen_enabled", "power_update_interval", b"power_update_interval"]) -> None: ...
+        def ClearField(self, field_name: typing.Literal["air_quality_enabled", b"air_quality_enabled", "air_quality_interval", b"air_quality_interval", "device_update_interval", b"device_update_interval", "environment_display_fahrenheit", b"environment_display_fahrenheit", "environment_measurement_enabled", b"environment_measurement_enabled", "environment_screen_enabled", b"environment_screen_enabled", "environment_update_interval", b"environment_update_interval", "error_measurement_enabled", b"error_measurement_enabled", "error_update_interval", b"error_update_interval", "health_measurement_enabled", b"health_measurement_enabled", "health_screen_enabled", b"health_screen_enabled", "health_update_interval", b"health_update_interval", "power_measurement_enabled", b"power_measurement_enabled", "power_screen_enabled", b"power_screen_enabled", "power_update_interval", b"power_update_interval"]) -> None: ...
 
     @typing.final
     class CannedMessageConfig(google.protobuf.message.Message):
         """
-        Canned Messages Module Config
+        TODO: REPLACE
         """
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1058,7 +1050,8 @@ class ModuleConfig(google.protobuf.message.Message):
         SEND_BELL_FIELD_NUMBER: builtins.int
         rotary1_enabled: builtins.bool
         """
-        Enable the rotary encoder #1. This is a 'dumb' encoder sending pulses on both A and B pins while rotating.
+        Enable the rotary encoder #1. This is a 'dumb' encoder sending pulses on
+        both A and B pins while rotating.
         """
         inputbroker_pin_a: builtins.int
         """
@@ -1072,21 +1065,22 @@ class ModuleConfig(google.protobuf.message.Message):
         """
         GPIO pin for rotary encoder Press port.
         """
-        inputbroker_event_cw: global___ModuleConfig.CannedMessageConfig.InputEventChar.ValueType
+        inputbroker_event_cw: Global___ModuleConfig.CannedMessageConfig.InputEventChar.ValueType
         """
         Generate input event on CW of this kind.
         """
-        inputbroker_event_ccw: global___ModuleConfig.CannedMessageConfig.InputEventChar.ValueType
+        inputbroker_event_ccw: Global___ModuleConfig.CannedMessageConfig.InputEventChar.ValueType
         """
         Generate input event on CCW of this kind.
         """
-        inputbroker_event_press: global___ModuleConfig.CannedMessageConfig.InputEventChar.ValueType
+        inputbroker_event_press: Global___ModuleConfig.CannedMessageConfig.InputEventChar.ValueType
         """
         Generate input event on Press of this kind.
         """
         updown1_enabled: builtins.bool
         """
-        Enable the Up/Down/Select input device. Can be RAK rotary encoder or 3 buttons. Uses the a/b/press definitions from inputbroker.
+        Enable the Up/Down/Select input device. Can be RAK rotary encoder or 3
+        buttons. Uses the a/b/press definitions from inputbroker.
         """
         enabled: builtins.bool
         """
@@ -1095,7 +1089,8 @@ class ModuleConfig(google.protobuf.message.Message):
         allow_input_source: builtins.str
         """
         Input event origin accepted by the canned message module.
-        Can be e.g. "rotEnc1", "upDownEnc1", "scanAndSelect", "cardkb", "serialkb", or keyword "_any"
+        Can be e.g. "rotEnc1", "upDownEnc1", "scanAndSelect", "cardkb",
+        "serialkb", or keyword "_any"
         """
         send_bell: builtins.bool
         """
@@ -1109,9 +1104,9 @@ class ModuleConfig(google.protobuf.message.Message):
             inputbroker_pin_a: builtins.int = ...,
             inputbroker_pin_b: builtins.int = ...,
             inputbroker_pin_press: builtins.int = ...,
-            inputbroker_event_cw: global___ModuleConfig.CannedMessageConfig.InputEventChar.ValueType = ...,
-            inputbroker_event_ccw: global___ModuleConfig.CannedMessageConfig.InputEventChar.ValueType = ...,
-            inputbroker_event_press: global___ModuleConfig.CannedMessageConfig.InputEventChar.ValueType = ...,
+            inputbroker_event_cw: Global___ModuleConfig.CannedMessageConfig.InputEventChar.ValueType = ...,
+            inputbroker_event_ccw: Global___ModuleConfig.CannedMessageConfig.InputEventChar.ValueType = ...,
+            inputbroker_event_press: Global___ModuleConfig.CannedMessageConfig.InputEventChar.ValueType = ...,
             updown1_enabled: builtins.bool = ...,
             enabled: builtins.bool = ...,
             allow_input_source: builtins.str = ...,
@@ -1122,7 +1117,8 @@ class ModuleConfig(google.protobuf.message.Message):
     @typing.final
     class AmbientLightingConfig(google.protobuf.message.Message):
         """
-        Ambient Lighting Module - Settings for control of onboard LEDs to allow users to adjust the brightness levels and respective color levels.
+        Ambient Lighting Module - Settings for control of onboard LEDs to allow
+        users to adjust the brightness levels and respective color levels.
         Initially created for the RAK14001 RGB LED module.
         """
 
@@ -1178,79 +1174,79 @@ class ModuleConfig(google.protobuf.message.Message):
     DETECTION_SENSOR_FIELD_NUMBER: builtins.int
     PAXCOUNTER_FIELD_NUMBER: builtins.int
     @property
-    def mqtt(self) -> global___ModuleConfig.MQTTConfig:
+    def mqtt(self) -> Global___ModuleConfig.MQTTConfig:
         """
         TODO: REPLACE
         """
 
     @property
-    def serial(self) -> global___ModuleConfig.SerialConfig:
+    def serial(self) -> Global___ModuleConfig.SerialConfig:
         """
         TODO: REPLACE
         """
 
     @property
-    def external_notification(self) -> global___ModuleConfig.ExternalNotificationConfig:
+    def external_notification(self) -> Global___ModuleConfig.ExternalNotificationConfig:
         """
         TODO: REPLACE
         """
 
     @property
-    def store_forward(self) -> global___ModuleConfig.StoreForwardConfig:
+    def store_forward(self) -> Global___ModuleConfig.StoreForwardConfig:
         """
         TODO: REPLACE
         """
 
     @property
-    def range_test(self) -> global___ModuleConfig.RangeTestConfig:
+    def range_test(self) -> Global___ModuleConfig.RangeTestConfig:
         """
         TODO: REPLACE
         """
 
     @property
-    def telemetry(self) -> global___ModuleConfig.TelemetryConfig:
+    def telemetry(self) -> Global___ModuleConfig.TelemetryConfig:
         """
         TODO: REPLACE
         """
 
     @property
-    def canned_message(self) -> global___ModuleConfig.CannedMessageConfig:
+    def canned_message(self) -> Global___ModuleConfig.CannedMessageConfig:
         """
         TODO: REPLACE
         """
 
     @property
-    def audio(self) -> global___ModuleConfig.AudioConfig:
+    def audio(self) -> Global___ModuleConfig.AudioConfig:
         """
         TODO: REPLACE
         """
 
     @property
-    def remote_hardware(self) -> global___ModuleConfig.RemoteHardwareConfig:
+    def remote_hardware(self) -> Global___ModuleConfig.RemoteHardwareConfig:
         """
         TODO: REPLACE
         """
 
     @property
-    def neighbor_info(self) -> global___ModuleConfig.NeighborInfoConfig:
+    def neighbor_info(self) -> Global___ModuleConfig.NeighborInfoConfig:
         """
         TODO: REPLACE
         """
 
     @property
-    def ambient_lighting(self) -> global___ModuleConfig.AmbientLightingConfig:
+    def ambient_lighting(self) -> Global___ModuleConfig.AmbientLightingConfig:
         """
         TODO: REPLACE
         """
 
     @property
-    def detection_sensor(self) -> global___ModuleConfig.DetectionSensorConfig:
+    def detection_sensor(self) -> Global___ModuleConfig.DetectionSensorConfig:
         """
         TODO: REPLACE
         """
 
     @property
-    def paxcounter(self) -> global___ModuleConfig.PaxcounterConfig:
+    def paxcounter(self) -> Global___ModuleConfig.PaxcounterConfig:
         """
         TODO: REPLACE
         """
@@ -1258,25 +1254,25 @@ class ModuleConfig(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        mqtt: global___ModuleConfig.MQTTConfig | None = ...,
-        serial: global___ModuleConfig.SerialConfig | None = ...,
-        external_notification: global___ModuleConfig.ExternalNotificationConfig | None = ...,
-        store_forward: global___ModuleConfig.StoreForwardConfig | None = ...,
-        range_test: global___ModuleConfig.RangeTestConfig | None = ...,
-        telemetry: global___ModuleConfig.TelemetryConfig | None = ...,
-        canned_message: global___ModuleConfig.CannedMessageConfig | None = ...,
-        audio: global___ModuleConfig.AudioConfig | None = ...,
-        remote_hardware: global___ModuleConfig.RemoteHardwareConfig | None = ...,
-        neighbor_info: global___ModuleConfig.NeighborInfoConfig | None = ...,
-        ambient_lighting: global___ModuleConfig.AmbientLightingConfig | None = ...,
-        detection_sensor: global___ModuleConfig.DetectionSensorConfig | None = ...,
-        paxcounter: global___ModuleConfig.PaxcounterConfig | None = ...,
+        mqtt: Global___ModuleConfig.MQTTConfig | None = ...,
+        serial: Global___ModuleConfig.SerialConfig | None = ...,
+        external_notification: Global___ModuleConfig.ExternalNotificationConfig | None = ...,
+        store_forward: Global___ModuleConfig.StoreForwardConfig | None = ...,
+        range_test: Global___ModuleConfig.RangeTestConfig | None = ...,
+        telemetry: Global___ModuleConfig.TelemetryConfig | None = ...,
+        canned_message: Global___ModuleConfig.CannedMessageConfig | None = ...,
+        audio: Global___ModuleConfig.AudioConfig | None = ...,
+        remote_hardware: Global___ModuleConfig.RemoteHardwareConfig | None = ...,
+        neighbor_info: Global___ModuleConfig.NeighborInfoConfig | None = ...,
+        ambient_lighting: Global___ModuleConfig.AmbientLightingConfig | None = ...,
+        detection_sensor: Global___ModuleConfig.DetectionSensorConfig | None = ...,
+        paxcounter: Global___ModuleConfig.PaxcounterConfig | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["ambient_lighting", b"ambient_lighting", "audio", b"audio", "canned_message", b"canned_message", "detection_sensor", b"detection_sensor", "external_notification", b"external_notification", "mqtt", b"mqtt", "neighbor_info", b"neighbor_info", "paxcounter", b"paxcounter", "payload_variant", b"payload_variant", "range_test", b"range_test", "remote_hardware", b"remote_hardware", "serial", b"serial", "store_forward", b"store_forward", "telemetry", b"telemetry"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["ambient_lighting", b"ambient_lighting", "audio", b"audio", "canned_message", b"canned_message", "detection_sensor", b"detection_sensor", "external_notification", b"external_notification", "mqtt", b"mqtt", "neighbor_info", b"neighbor_info", "paxcounter", b"paxcounter", "payload_variant", b"payload_variant", "range_test", b"range_test", "remote_hardware", b"remote_hardware", "serial", b"serial", "store_forward", b"store_forward", "telemetry", b"telemetry"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["payload_variant", b"payload_variant"]) -> typing.Literal["mqtt", "serial", "external_notification", "store_forward", "range_test", "telemetry", "canned_message", "audio", "remote_hardware", "neighbor_info", "ambient_lighting", "detection_sensor", "paxcounter"] | None: ...
 
-global___ModuleConfig = ModuleConfig
+Global___ModuleConfig: typing_extensions.TypeAlias = ModuleConfig
 
 @typing.final
 class RemoteHardwarePin(google.protobuf.message.Message):
@@ -1297,7 +1293,7 @@ class RemoteHardwarePin(google.protobuf.message.Message):
     """
     Name for the GPIO pin (i.e. Front gate, mailbox, etc)
     """
-    type: global___RemoteHardwarePinType.ValueType
+    type: Global___RemoteHardwarePinType.ValueType
     """
     Type of GPIO access available to consumers on the mesh
     """
@@ -1306,8 +1302,8 @@ class RemoteHardwarePin(google.protobuf.message.Message):
         *,
         gpio_pin: builtins.int = ...,
         name: builtins.str = ...,
-        type: global___RemoteHardwarePinType.ValueType = ...,
+        type: Global___RemoteHardwarePinType.ValueType = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["gpio_pin", b"gpio_pin", "name", b"name", "type", b"type"]) -> None: ...
 
-global___RemoteHardwarePin = RemoteHardwarePin
+Global___RemoteHardwarePin: typing_extensions.TypeAlias = RemoteHardwarePin
