@@ -383,4 +383,4 @@ MAX: PortNum.ValueType  # 511
 """
 Currently we limit port nums to no higher than this value
 """
-global___PortNum = PortNum
+Global___PortNum: typing_extensions.TypeAlias = PortNum

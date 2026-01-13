@@ -339,7 +339,7 @@ AS7265X: TelemetrySensorType.ValueType  # 37
 """
 AS7265X Spectral Triad spectroscopy sensor
 """
-global___TelemetrySensorType = TelemetrySensorType
+Global___TelemetrySensorType: typing_extensions.TypeAlias = TelemetrySensorType
 
 @typing.final
 class DeviceMetrics(google.protobuf.message.Message):
@@ -397,7 +397,7 @@ class DeviceMetrics(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_voltage", b"_voltage"]) -> typing.Literal["voltage"] | None: ...
 
-global___DeviceMetrics = DeviceMetrics
+Global___DeviceMetrics: typing_extensions.TypeAlias = DeviceMetrics
 
 @typing.final
 class EnvironmentMetrics(google.protobuf.message.Message):
@@ -515,7 +515,7 @@ class EnvironmentMetrics(google.protobuf.message.Message):
     """
     Rainfall in the last 24 hours in mm
     """
-    sensor: global___TelemetrySensorType.ValueType
+    sensor: Global___TelemetrySensorType.ValueType
     """
     Sensor type
     """
@@ -542,7 +542,7 @@ class EnvironmentMetrics(google.protobuf.message.Message):
         radiation: builtins.float | None = ...,
         rainfall_1h: builtins.float | None = ...,
         rainfall_24h: builtins.float | None = ...,
-        sensor: global___TelemetrySensorType.ValueType | None = ...,
+        sensor: Global___TelemetrySensorType.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_barometric_pressure", b"_barometric_pressure", "_current", b"_current", "_distance", b"_distance", "_gas_resistance", b"_gas_resistance", "_iaq", b"_iaq", "_ir_lux", b"_ir_lux", "_lux", b"_lux", "_radiation", b"_radiation", "_rainfall_1h", b"_rainfall_1h", "_rainfall_24h", b"_rainfall_24h", "_relative_humidity", b"_relative_humidity", "_sensor", b"_sensor", "_temperature", b"_temperature", "_uv_lux", b"_uv_lux", "_voltage", b"_voltage", "_weight", b"_weight", "_white_lux", b"_white_lux", "_wind_direction", b"_wind_direction", "_wind_gust", b"_wind_gust", "_wind_lull", b"_wind_lull", "_wind_speed", b"_wind_speed", "barometric_pressure", b"barometric_pressure", "current", b"current", "distance", b"distance", "gas_resistance", b"gas_resistance", "iaq", b"iaq", "ir_lux", b"ir_lux", "lux", b"lux", "radiation", b"radiation", "rainfall_1h", b"rainfall_1h", "rainfall_24h", b"rainfall_24h", "relative_humidity", b"relative_humidity", "sensor", b"sensor", "temperature", b"temperature", "uv_lux", b"uv_lux", "voltage", b"voltage", "weight", b"weight", "white_lux", b"white_lux", "wind_direction", b"wind_direction", "wind_gust", b"wind_gust", "wind_lull", b"wind_lull", "wind_speed", b"wind_speed"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["_barometric_pressure", b"_barometric_pressure", "_current", b"_current", "_distance", b"_distance", "_gas_resistance", b"_gas_resistance", "_iaq", b"_iaq", "_ir_lux", b"_ir_lux", "_lux", b"_lux", "_radiation", b"_radiation", "_rainfall_1h", b"_rainfall_1h", "_rainfall_24h", b"_rainfall_24h", "_relative_humidity", b"_relative_humidity", "_sensor", b"_sensor", "_temperature", b"_temperature", "_uv_lux", b"_uv_lux", "_voltage", b"_voltage", "_weight", b"_weight", "_white_lux", b"_white_lux", "_wind_direction", b"_wind_direction", "_wind_gust", b"_wind_gust", "_wind_lull", b"_wind_lull", "_wind_speed", b"_wind_speed", "barometric_pressure", b"barometric_pressure", "current", b"current", "distance", b"distance", "gas_resistance", b"gas_resistance", "iaq", b"iaq", "ir_lux", b"ir_lux", "lux", b"lux", "radiation", b"radiation", "rainfall_1h", b"rainfall_1h", "rainfall_24h", b"rainfall_24h", "relative_humidity", b"relative_humidity", "sensor", b"sensor", "temperature", b"temperature", "uv_lux", b"uv_lux", "voltage", b"voltage", "weight", b"weight", "white_lux", b"white_lux", "wind_direction", b"wind_direction", "wind_gust", b"wind_gust", "wind_lull", b"wind_lull", "wind_speed", b"wind_speed"]) -> None: ...
@@ -589,7 +589,7 @@ class EnvironmentMetrics(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_wind_speed", b"_wind_speed"]) -> typing.Literal["wind_speed"] | None: ...
 
-global___EnvironmentMetrics = EnvironmentMetrics
+Global___EnvironmentMetrics: typing_extensions.TypeAlias = EnvironmentMetrics
 
 @typing.final
 class PowerMetrics(google.protobuf.message.Message):
@@ -654,7 +654,7 @@ class PowerMetrics(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_ch3_voltage", b"_ch3_voltage"]) -> typing.Literal["ch3_voltage"] | None: ...
 
-global___PowerMetrics = PowerMetrics
+Global___PowerMetrics: typing_extensions.TypeAlias = PowerMetrics
 
 @typing.final
 class AirQualityMetrics(google.protobuf.message.Message):
@@ -730,7 +730,7 @@ class AirQualityMetrics(google.protobuf.message.Message):
     """
     10.0um Particle Count
     """
-    sensor: global___TelemetrySensorType.ValueType
+    sensor: Global___TelemetrySensorType.ValueType
     """
     Sensor type
     """
@@ -750,7 +750,7 @@ class AirQualityMetrics(google.protobuf.message.Message):
         particles_50um: builtins.int | None = ...,
         particles_100um: builtins.int | None = ...,
         co2: builtins.int | None = ...,
-        sensor: global___TelemetrySensorType.ValueType | None = ...,
+        sensor: Global___TelemetrySensorType.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_co2", b"_co2", "_particles_03um", b"_particles_03um", "_particles_05um", b"_particles_05um", "_particles_100um", b"_particles_100um", "_particles_10um", b"_particles_10um", "_particles_25um", b"_particles_25um", "_particles_50um", b"_particles_50um", "_pm100_environmental", b"_pm100_environmental", "_pm100_standard", b"_pm100_standard", "_pm10_environmental", b"_pm10_environmental", "_pm10_standard", b"_pm10_standard", "_pm25_environmental", b"_pm25_environmental", "_pm25_standard", b"_pm25_standard", "_sensor", b"_sensor", "co2", b"co2", "particles_03um", b"particles_03um", "particles_05um", b"particles_05um", "particles_100um", b"particles_100um", "particles_10um", b"particles_10um", "particles_25um", b"particles_25um", "particles_50um", b"particles_50um", "pm100_environmental", b"pm100_environmental", "pm100_standard", b"pm100_standard", "pm10_environmental", b"pm10_environmental", "pm10_standard", b"pm10_standard", "pm25_environmental", b"pm25_environmental", "pm25_standard", b"pm25_standard", "sensor", b"sensor"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["_co2", b"_co2", "_particles_03um", b"_particles_03um", "_particles_05um", b"_particles_05um", "_particles_100um", b"_particles_100um", "_particles_10um", b"_particles_10um", "_particles_25um", b"_particles_25um", "_particles_50um", b"_particles_50um", "_pm100_environmental", b"_pm100_environmental", "_pm100_standard", b"_pm100_standard", "_pm10_environmental", b"_pm10_environmental", "_pm10_standard", b"_pm10_standard", "_pm25_environmental", b"_pm25_environmental", "_pm25_standard", b"_pm25_standard", "_sensor", b"_sensor", "co2", b"co2", "particles_03um", b"particles_03um", "particles_05um", b"particles_05um", "particles_100um", b"particles_100um", "particles_10um", b"particles_10um", "particles_25um", b"particles_25um", "particles_50um", b"particles_50um", "pm100_environmental", b"pm100_environmental", "pm100_standard", b"pm100_standard", "pm10_environmental", b"pm10_environmental", "pm10_standard", b"pm10_standard", "pm25_environmental", b"pm25_environmental", "pm25_standard", b"pm25_standard", "sensor", b"sensor"]) -> None: ...
@@ -783,7 +783,7 @@ class AirQualityMetrics(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_sensor", b"_sensor"]) -> typing.Literal["sensor"] | None: ...
 
-global___AirQualityMetrics = AirQualityMetrics
+Global___AirQualityMetrics: typing_extensions.TypeAlias = AirQualityMetrics
 
 @typing.final
 class LocalStats(google.protobuf.message.Message):
@@ -871,7 +871,7 @@ class LocalStats(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["air_util_tx", b"air_util_tx", "channel_utilization", b"channel_utilization", "num_online_nodes", b"num_online_nodes", "num_packets_rx", b"num_packets_rx", "num_packets_rx_bad", b"num_packets_rx_bad", "num_packets_tx", b"num_packets_tx", "num_rx_dupe", b"num_rx_dupe", "num_total_nodes", b"num_total_nodes", "num_tx_relay", b"num_tx_relay", "num_tx_relay_canceled", b"num_tx_relay_canceled", "uptime_seconds", b"uptime_seconds"]) -> None: ...
 
-global___LocalStats = LocalStats
+Global___LocalStats: typing_extensions.TypeAlias = LocalStats
 
 @typing.final
 class HealthMetrics(google.protobuf.message.Message):
@@ -912,7 +912,7 @@ class HealthMetrics(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_temperature", b"_temperature"]) -> typing.Literal["temperature"] | None: ...
 
-global___HealthMetrics = HealthMetrics
+Global___HealthMetrics: typing_extensions.TypeAlias = HealthMetrics
 
 @typing.final
 class ErrorMetrics(google.protobuf.message.Message):
@@ -1029,7 +1029,7 @@ class ErrorMetrics(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_usefulness", b"_usefulness"]) -> typing.Literal["usefulness"] | None: ...
 
-global___ErrorMetrics = ErrorMetrics
+Global___ErrorMetrics: typing_extensions.TypeAlias = ErrorMetrics
 
 @typing.final
 class Telemetry(google.protobuf.message.Message):
@@ -1052,43 +1052,43 @@ class Telemetry(google.protobuf.message.Message):
     Seconds since 1970 - or 0 for unknown/unset
     """
     @property
-    def device_metrics(self) -> global___DeviceMetrics:
+    def device_metrics(self) -> Global___DeviceMetrics:
         """
         Key native device metrics such as battery level
         """
 
     @property
-    def environment_metrics(self) -> global___EnvironmentMetrics:
+    def environment_metrics(self) -> Global___EnvironmentMetrics:
         """
         Weather station or other environmental metrics
         """
 
     @property
-    def air_quality_metrics(self) -> global___AirQualityMetrics:
+    def air_quality_metrics(self) -> Global___AirQualityMetrics:
         """
         Air quality metrics
         """
 
     @property
-    def power_metrics(self) -> global___PowerMetrics:
+    def power_metrics(self) -> Global___PowerMetrics:
         """
         Power Metrics
         """
 
     @property
-    def local_stats(self) -> global___LocalStats:
+    def local_stats(self) -> Global___LocalStats:
         """
         Local device mesh statistics
         """
 
     @property
-    def health_metrics(self) -> global___HealthMetrics:
+    def health_metrics(self) -> Global___HealthMetrics:
         """
         Health telemetry metrics
         """
 
     @property
-    def error_metrics(self) -> global___ErrorMetrics:
+    def error_metrics(self) -> Global___ErrorMetrics:
         """
         Error telemetry metrics
         """
@@ -1097,19 +1097,19 @@ class Telemetry(google.protobuf.message.Message):
         self,
         *,
         time: builtins.int = ...,
-        device_metrics: global___DeviceMetrics | None = ...,
-        environment_metrics: global___EnvironmentMetrics | None = ...,
-        air_quality_metrics: global___AirQualityMetrics | None = ...,
-        power_metrics: global___PowerMetrics | None = ...,
-        local_stats: global___LocalStats | None = ...,
-        health_metrics: global___HealthMetrics | None = ...,
-        error_metrics: global___ErrorMetrics | None = ...,
+        device_metrics: Global___DeviceMetrics | None = ...,
+        environment_metrics: Global___EnvironmentMetrics | None = ...,
+        air_quality_metrics: Global___AirQualityMetrics | None = ...,
+        power_metrics: Global___PowerMetrics | None = ...,
+        local_stats: Global___LocalStats | None = ...,
+        health_metrics: Global___HealthMetrics | None = ...,
+        error_metrics: Global___ErrorMetrics | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["air_quality_metrics", b"air_quality_metrics", "device_metrics", b"device_metrics", "environment_metrics", b"environment_metrics", "error_metrics", b"error_metrics", "health_metrics", b"health_metrics", "local_stats", b"local_stats", "power_metrics", b"power_metrics", "variant", b"variant"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["air_quality_metrics", b"air_quality_metrics", "device_metrics", b"device_metrics", "environment_metrics", b"environment_metrics", "error_metrics", b"error_metrics", "health_metrics", b"health_metrics", "local_stats", b"local_stats", "power_metrics", b"power_metrics", "time", b"time", "variant", b"variant"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["variant", b"variant"]) -> typing.Literal["device_metrics", "environment_metrics", "air_quality_metrics", "power_metrics", "local_stats", "health_metrics", "error_metrics"] | None: ...
 
-global___Telemetry = Telemetry
+Global___Telemetry: typing_extensions.TypeAlias = Telemetry
 
 @typing.final
 class Nau7802Config(google.protobuf.message.Message):
@@ -1137,4 +1137,4 @@ class Nau7802Config(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["calibrationFactor", b"calibrationFactor", "zeroOffset", b"zeroOffset"]) -> None: ...
 
-global___Nau7802Config = Nau7802Config
+Global___Nau7802Config: typing_extensions.TypeAlias = Nau7802Config

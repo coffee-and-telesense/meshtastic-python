@@ -50,7 +50,7 @@ RED: Theme.ValueType  # 2
 """
 Red
 """
-global___Theme = Theme
+Global___Theme: typing_extensions.TypeAlias = Theme
 
 class _Language:
     ValueType = typing.NewType("ValueType", builtins.int)
@@ -208,7 +208,7 @@ TRADITIONAL_CHINESE: Language.ValueType  # 31
 """
 Traditional Chinese (experimental)
 """
-global___Language = Language
+Global___Language: typing_extensions.TypeAlias = Language
 
 @typing.final
 class DeviceUIConfig(google.protobuf.message.Message):
@@ -250,7 +250,7 @@ class DeviceUIConfig(google.protobuf.message.Message):
     """
     settings_lock: builtins.bool
     pin_code: builtins.int
-    theme: global___Theme.ValueType
+    theme: Global___Theme.ValueType
     """
     Color theme
     """
@@ -260,7 +260,7 @@ class DeviceUIConfig(google.protobuf.message.Message):
     """
     banner_enabled: builtins.bool
     ring_tone_id: builtins.int
-    language: global___Language.ValueType
+    language: Global___Language.ValueType
     """
     Localization
     """
@@ -269,13 +269,13 @@ class DeviceUIConfig(google.protobuf.message.Message):
     8 integers for screen calibration data
     """
     @property
-    def node_filter(self) -> global___NodeFilter:
+    def node_filter(self) -> Global___NodeFilter:
         """
         Node list filter
         """
 
     @property
-    def node_highlight(self) -> global___NodeHighlight:
+    def node_highlight(self) -> Global___NodeHighlight:
         """
         Node list highlightening
         """
@@ -289,19 +289,19 @@ class DeviceUIConfig(google.protobuf.message.Message):
         screen_lock: builtins.bool = ...,
         settings_lock: builtins.bool = ...,
         pin_code: builtins.int = ...,
-        theme: global___Theme.ValueType = ...,
+        theme: Global___Theme.ValueType = ...,
         alert_enabled: builtins.bool = ...,
         banner_enabled: builtins.bool = ...,
         ring_tone_id: builtins.int = ...,
-        language: global___Language.ValueType = ...,
-        node_filter: global___NodeFilter | None = ...,
-        node_highlight: global___NodeHighlight | None = ...,
+        language: Global___Language.ValueType = ...,
+        node_filter: Global___NodeFilter | None = ...,
+        node_highlight: Global___NodeHighlight | None = ...,
         calibration_data: builtins.bytes = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["node_filter", b"node_filter", "node_highlight", b"node_highlight"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["alert_enabled", b"alert_enabled", "banner_enabled", b"banner_enabled", "calibration_data", b"calibration_data", "language", b"language", "node_filter", b"node_filter", "node_highlight", b"node_highlight", "pin_code", b"pin_code", "ring_tone_id", b"ring_tone_id", "screen_brightness", b"screen_brightness", "screen_lock", b"screen_lock", "screen_timeout", b"screen_timeout", "settings_lock", b"settings_lock", "theme", b"theme", "version", b"version"]) -> None: ...
 
-global___DeviceUIConfig = DeviceUIConfig
+Global___DeviceUIConfig: typing_extensions.TypeAlias = DeviceUIConfig
 
 @typing.final
 class NodeFilter(google.protobuf.message.Message):
@@ -355,7 +355,7 @@ class NodeFilter(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["channel", b"channel", "hops_away", b"hops_away", "node_name", b"node_name", "offline_switch", b"offline_switch", "position_switch", b"position_switch", "public_key_switch", b"public_key_switch", "unknown_switch", b"unknown_switch"]) -> None: ...
 
-global___NodeFilter = NodeFilter
+Global___NodeFilter: typing_extensions.TypeAlias = NodeFilter
 
 @typing.final
 class NodeHighlight(google.protobuf.message.Message):
@@ -397,4 +397,4 @@ class NodeHighlight(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["chat_switch", b"chat_switch", "iaq_switch", b"iaq_switch", "node_name", b"node_name", "position_switch", b"position_switch", "telemetry_switch", b"telemetry_switch"]) -> None: ...
 
-global___NodeHighlight = NodeHighlight
+Global___NodeHighlight: typing_extensions.TypeAlias = NodeHighlight

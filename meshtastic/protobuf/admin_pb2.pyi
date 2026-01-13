@@ -305,11 +305,11 @@ class AdminMessage(google.protobuf.message.Message):
     """
     Send the current owner data in the response to this message.
     """
-    get_config_request: global___AdminMessage.ConfigType.ValueType
+    get_config_request: Global___AdminMessage.ConfigType.ValueType
     """
     Ask for the following config data to be sent
     """
-    get_module_config_request: global___AdminMessage.ModuleConfigType.ValueType
+    get_module_config_request: Global___AdminMessage.ModuleConfigType.ValueType
     """
     Ask for the following config data to be sent
     """
@@ -471,13 +471,13 @@ class AdminMessage(google.protobuf.message.Message):
         """
 
     @property
-    def set_ham_mode(self) -> global___HamParameters:
+    def set_ham_mode(self) -> Global___HamParameters:
         """
         Setup a node for licensed amateur (ham) radio operation
         """
 
     @property
-    def get_node_remote_hardware_pins_response(self) -> global___NodeRemoteHardwarePinsResponse:
+    def get_node_remote_hardware_pins_response(self) -> Global___NodeRemoteHardwarePinsResponse:
         """
         Respond with the mesh's nodes with their available gpio pins for RemoteHardware module use
         """
@@ -536,9 +536,9 @@ class AdminMessage(google.protobuf.message.Message):
         get_channel_response: meshtastic.protobuf.channel_pb2.Channel | None = ...,
         get_owner_request: builtins.bool = ...,
         get_owner_response: meshtastic.protobuf.mesh_pb2.User | None = ...,
-        get_config_request: global___AdminMessage.ConfigType.ValueType = ...,
+        get_config_request: Global___AdminMessage.ConfigType.ValueType = ...,
         get_config_response: meshtastic.protobuf.config_pb2.Config | None = ...,
-        get_module_config_request: global___AdminMessage.ModuleConfigType.ValueType = ...,
+        get_module_config_request: Global___AdminMessage.ModuleConfigType.ValueType = ...,
         get_module_config_response: meshtastic.protobuf.module_config_pb2.ModuleConfig | None = ...,
         get_canned_message_module_messages_request: builtins.bool = ...,
         get_canned_message_module_messages_response: builtins.str = ...,
@@ -548,9 +548,9 @@ class AdminMessage(google.protobuf.message.Message):
         get_ringtone_response: builtins.str = ...,
         get_device_connection_status_request: builtins.bool = ...,
         get_device_connection_status_response: meshtastic.protobuf.connection_status_pb2.DeviceConnectionStatus | None = ...,
-        set_ham_mode: global___HamParameters | None = ...,
+        set_ham_mode: Global___HamParameters | None = ...,
         get_node_remote_hardware_pins_request: builtins.bool = ...,
-        get_node_remote_hardware_pins_response: global___NodeRemoteHardwarePinsResponse | None = ...,
+        get_node_remote_hardware_pins_response: Global___NodeRemoteHardwarePinsResponse | None = ...,
         enter_dfu_mode_request: builtins.bool = ...,
         delete_file_request: builtins.str = ...,
         set_scale: builtins.int = ...,
@@ -585,7 +585,7 @@ class AdminMessage(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["begin_edit_settings", b"begin_edit_settings", "commit_edit_settings", b"commit_edit_settings", "delete_file_request", b"delete_file_request", "enter_dfu_mode_request", b"enter_dfu_mode_request", "exit_simulator", b"exit_simulator", "factory_reset_config", b"factory_reset_config", "factory_reset_device", b"factory_reset_device", "get_canned_message_module_messages_request", b"get_canned_message_module_messages_request", "get_canned_message_module_messages_response", b"get_canned_message_module_messages_response", "get_channel_request", b"get_channel_request", "get_channel_response", b"get_channel_response", "get_config_request", b"get_config_request", "get_config_response", b"get_config_response", "get_device_connection_status_request", b"get_device_connection_status_request", "get_device_connection_status_response", b"get_device_connection_status_response", "get_device_metadata_request", b"get_device_metadata_request", "get_device_metadata_response", b"get_device_metadata_response", "get_module_config_request", b"get_module_config_request", "get_module_config_response", b"get_module_config_response", "get_node_remote_hardware_pins_request", b"get_node_remote_hardware_pins_request", "get_node_remote_hardware_pins_response", b"get_node_remote_hardware_pins_response", "get_owner_request", b"get_owner_request", "get_owner_response", b"get_owner_response", "get_ringtone_request", b"get_ringtone_request", "get_ringtone_response", b"get_ringtone_response", "get_ui_config_request", b"get_ui_config_request", "get_ui_config_response", b"get_ui_config_response", "nodedb_reset", b"nodedb_reset", "payload_variant", b"payload_variant", "reboot_ota_seconds", b"reboot_ota_seconds", "reboot_seconds", b"reboot_seconds", "remove_by_nodenum", b"remove_by_nodenum", "remove_favorite_node", b"remove_favorite_node", "remove_fixed_position", b"remove_fixed_position", "remove_ignored_node", b"remove_ignored_node", "session_passkey", b"session_passkey", "set_canned_message_module_messages", b"set_canned_message_module_messages", "set_channel", b"set_channel", "set_config", b"set_config", "set_favorite_node", b"set_favorite_node", "set_fixed_position", b"set_fixed_position", "set_ham_mode", b"set_ham_mode", "set_ignored_node", b"set_ignored_node", "set_module_config", b"set_module_config", "set_owner", b"set_owner", "set_ringtone_message", b"set_ringtone_message", "set_scale", b"set_scale", "set_time_only", b"set_time_only", "shutdown_seconds", b"shutdown_seconds", "store_ui_config", b"store_ui_config"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["payload_variant", b"payload_variant"]) -> typing.Literal["get_channel_request", "get_channel_response", "get_owner_request", "get_owner_response", "get_config_request", "get_config_response", "get_module_config_request", "get_module_config_response", "get_canned_message_module_messages_request", "get_canned_message_module_messages_response", "get_device_metadata_request", "get_device_metadata_response", "get_ringtone_request", "get_ringtone_response", "get_device_connection_status_request", "get_device_connection_status_response", "set_ham_mode", "get_node_remote_hardware_pins_request", "get_node_remote_hardware_pins_response", "enter_dfu_mode_request", "delete_file_request", "set_scale", "set_owner", "set_channel", "set_config", "set_module_config", "set_canned_message_module_messages", "set_ringtone_message", "remove_by_nodenum", "set_favorite_node", "remove_favorite_node", "set_fixed_position", "remove_fixed_position", "set_time_only", "get_ui_config_request", "get_ui_config_response", "store_ui_config", "set_ignored_node", "remove_ignored_node", "begin_edit_settings", "commit_edit_settings", "factory_reset_device", "reboot_ota_seconds", "exit_simulator", "reboot_seconds", "shutdown_seconds", "factory_reset_config", "nodedb_reset"] | None: ...
 
-global___AdminMessage = AdminMessage
+Global___AdminMessage: typing_extensions.TypeAlias = AdminMessage
 
 @typing.final
 class HamParameters(google.protobuf.message.Message):
@@ -627,7 +627,7 @@ class HamParameters(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["call_sign", b"call_sign", "frequency", b"frequency", "short_name", b"short_name", "tx_power", b"tx_power"]) -> None: ...
 
-global___HamParameters = HamParameters
+Global___HamParameters: typing_extensions.TypeAlias = HamParameters
 
 @typing.final
 class NodeRemoteHardwarePinsResponse(google.protobuf.message.Message):
@@ -651,4 +651,4 @@ class NodeRemoteHardwarePinsResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["node_remote_hardware_pins", b"node_remote_hardware_pins"]) -> None: ...
 
-global___NodeRemoteHardwarePinsResponse = NodeRemoteHardwarePinsResponse
+Global___NodeRemoteHardwarePinsResponse: typing_extensions.TypeAlias = NodeRemoteHardwarePinsResponse

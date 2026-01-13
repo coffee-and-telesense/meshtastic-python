@@ -12,7 +12,13 @@ import meshtastic.protobuf.channel_pb2
 import meshtastic.protobuf.config_pb2
 import meshtastic.protobuf.mesh_pb2
 import meshtastic.protobuf.telemetry_pb2
+import sys
 import typing
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -65,7 +71,7 @@ class PositionLite(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["altitude", b"altitude", "latitude_i", b"latitude_i", "location_source", b"location_source", "longitude_i", b"longitude_i", "time", b"time"]) -> None: ...
 
-global___PositionLite = PositionLite
+Global___PositionLite: typing_extensions.TypeAlias = PositionLite
 
 @typing.final
 class UserLite(google.protobuf.message.Message):
@@ -126,7 +132,7 @@ class UserLite(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["hw_model", b"hw_model", "is_licensed", b"is_licensed", "long_name", b"long_name", "macaddr", b"macaddr", "public_key", b"public_key", "role", b"role", "short_name", b"short_name"]) -> None: ...
 
-global___UserLite = UserLite
+Global___UserLite: typing_extensions.TypeAlias = UserLite
 
 @typing.final
 class NodeInfoLite(google.protobuf.message.Message):
@@ -189,13 +195,13 @@ class NodeInfoLite(google.protobuf.message.Message):
     Last rx'd RSSI of this node
     """
     @property
-    def user(self) -> global___UserLite:
+    def user(self) -> Global___UserLite:
         """
         The user info for this node
         """
 
     @property
-    def position(self) -> global___PositionLite:
+    def position(self) -> Global___PositionLite:
         """
         This position data. Note: before 1.2.14 we would also store the last time we've heard from this node in position.time, that is no longer true.
         Position.time now indicates the last time we received a POSITION from that node.
@@ -211,8 +217,8 @@ class NodeInfoLite(google.protobuf.message.Message):
         self,
         *,
         num: builtins.int = ...,
-        user: global___UserLite | None = ...,
-        position: global___PositionLite | None = ...,
+        user: Global___UserLite | None = ...,
+        position: Global___PositionLite | None = ...,
         snr: builtins.float = ...,
         last_heard: builtins.int = ...,
         device_metrics: meshtastic.protobuf.telemetry_pb2.DeviceMetrics | None = ...,
@@ -231,7 +237,7 @@ class NodeInfoLite(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_rssi", b"_rssi"]) -> typing.Literal["rssi"] | None: ...
 
-global___NodeInfoLite = NodeInfoLite
+Global___NodeInfoLite: typing_extensions.TypeAlias = NodeInfoLite
 
 @typing.final
 class DeviceState(google.protobuf.message.Message):
@@ -312,7 +318,7 @@ class DeviceState(google.protobuf.message.Message):
         """
 
     @property
-    def node_db_lite(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___NodeInfoLite]:
+    def node_db_lite(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___NodeInfoLite]:
         """
         New lite version of NodeDB to decrease memory footprint
         """
@@ -329,12 +335,12 @@ class DeviceState(google.protobuf.message.Message):
         did_gps_reset: builtins.bool = ...,
         rx_waypoint: meshtastic.protobuf.mesh_pb2.MeshPacket | None = ...,
         node_remote_hardware_pins: collections.abc.Iterable[meshtastic.protobuf.mesh_pb2.NodeRemoteHardwarePin] | None = ...,
-        node_db_lite: collections.abc.Iterable[global___NodeInfoLite] | None = ...,
+        node_db_lite: collections.abc.Iterable[Global___NodeInfoLite] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["my_node", b"my_node", "owner", b"owner", "rx_text_message", b"rx_text_message", "rx_waypoint", b"rx_waypoint"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["did_gps_reset", b"did_gps_reset", "my_node", b"my_node", "no_save", b"no_save", "node_db_lite", b"node_db_lite", "node_remote_hardware_pins", b"node_remote_hardware_pins", "owner", b"owner", "receive_queue", b"receive_queue", "rx_text_message", b"rx_text_message", "rx_waypoint", b"rx_waypoint", "version", b"version"]) -> None: ...
 
-global___DeviceState = DeviceState
+Global___DeviceState: typing_extensions.TypeAlias = DeviceState
 
 @typing.final
 class ChannelFile(google.protobuf.message.Message):
@@ -366,4 +372,4 @@ class ChannelFile(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["channels", b"channels", "version", b"version"]) -> None: ...
 
-global___ChannelFile = ChannelFile
+Global___ChannelFile: typing_extensions.TypeAlias = ChannelFile

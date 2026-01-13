@@ -283,7 +283,7 @@ class Config(google.protobuf.message.Message):
         DISABLE_TRIPLE_CLICK_FIELD_NUMBER: builtins.int
         TZDEF_FIELD_NUMBER: builtins.int
         LED_HEARTBEAT_DISABLED_FIELD_NUMBER: builtins.int
-        role: global___Config.DeviceConfig.Role.ValueType
+        role: Global___Config.DeviceConfig.Role.ValueType
         """
         Sets the role of node
         """
@@ -302,7 +302,7 @@ class Config(google.protobuf.message.Message):
         For boards without a PWM buzzer, this is the pin number that will be used
         Defaults to PIN_BUZZER if defined.
         """
-        rebroadcast_mode: global___Config.DeviceConfig.RebroadcastMode.ValueType
+        rebroadcast_mode: Global___Config.DeviceConfig.RebroadcastMode.ValueType
         """
         Sets the role of node
         """
@@ -336,11 +336,11 @@ class Config(google.protobuf.message.Message):
         def __init__(
             self,
             *,
-            role: global___Config.DeviceConfig.Role.ValueType = ...,
+            role: Global___Config.DeviceConfig.Role.ValueType = ...,
             serial_enabled: builtins.bool = ...,
             button_gpio: builtins.int = ...,
             buzzer_gpio: builtins.int = ...,
-            rebroadcast_mode: global___Config.DeviceConfig.RebroadcastMode.ValueType = ...,
+            rebroadcast_mode: Global___Config.DeviceConfig.RebroadcastMode.ValueType = ...,
             node_info_broadcast_secs: builtins.int = ...,
             double_tap_as_button_press: builtins.bool = ...,
             is_managed: builtins.bool = ...,
@@ -572,7 +572,7 @@ class Config(google.protobuf.message.Message):
         """
         (Re)define PIN_GPS_EN for your board.
         """
-        gps_mode: global___Config.PositionConfig.GpsMode.ValueType
+        gps_mode: Global___Config.PositionConfig.GpsMode.ValueType
         """
         Set where GPS is enabled, disabled, or not present
         """
@@ -591,7 +591,7 @@ class Config(google.protobuf.message.Message):
             broadcast_smart_minimum_distance: builtins.int = ...,
             broadcast_smart_minimum_interval_secs: builtins.int = ...,
             gps_en_gpio: builtins.int = ...,
-            gps_mode: global___Config.PositionConfig.GpsMode.ValueType = ...,
+            gps_mode: Global___Config.PositionConfig.GpsMode.ValueType = ...,
         ) -> None: ...
         def ClearField(self, field_name: typing.Literal["broadcast_smart_minimum_distance", b"broadcast_smart_minimum_distance", "broadcast_smart_minimum_interval_secs", b"broadcast_smart_minimum_interval_secs", "fixed_position", b"fixed_position", "gps_attempt_time", b"gps_attempt_time", "gps_en_gpio", b"gps_en_gpio", "gps_enabled", b"gps_enabled", "gps_mode", b"gps_mode", "gps_update_interval", b"gps_update_interval", "position_broadcast_secs", b"position_broadcast_secs", "position_broadcast_smart_enabled", b"position_broadcast_smart_enabled", "position_flags", b"position_flags", "rx_gpio", b"rx_gpio", "tx_gpio", b"tx_gpio"]) -> None: ...
 
@@ -802,7 +802,7 @@ class Config(google.protobuf.message.Message):
         """
         Enable Ethernet
         """
-        address_mode: global___Config.NetworkConfig.AddressMode.ValueType
+        address_mode: Global___Config.NetworkConfig.AddressMode.ValueType
         """
         acquire an address via DHCP or assign static
         """
@@ -815,7 +815,7 @@ class Config(google.protobuf.message.Message):
         Flags for enabling/disabling network protocols
         """
         @property
-        def ipv4_config(self) -> global___Config.NetworkConfig.IpV4Config:
+        def ipv4_config(self) -> Global___Config.NetworkConfig.IpV4Config:
             """
             struct to keep static address
             """
@@ -828,8 +828,8 @@ class Config(google.protobuf.message.Message):
             wifi_psk: builtins.str = ...,
             ntp_server: builtins.str = ...,
             eth_enabled: builtins.bool = ...,
-            address_mode: global___Config.NetworkConfig.AddressMode.ValueType = ...,
-            ipv4_config: global___Config.NetworkConfig.IpV4Config | None = ...,
+            address_mode: Global___Config.NetworkConfig.AddressMode.ValueType = ...,
+            ipv4_config: Global___Config.NetworkConfig.IpV4Config | None = ...,
             rsyslog_server: builtins.str = ...,
             enabled_protocols: builtins.int = ...,
         ) -> None: ...
@@ -1123,7 +1123,7 @@ class Config(google.protobuf.message.Message):
         Number of seconds the screen stays on after pressing the user button or receiving a message
         0 for default of one minute MAXUINT for always on
         """
-        gps_format: global___Config.DisplayConfig.GpsCoordinateFormat.ValueType
+        gps_format: Global___Config.DisplayConfig.GpsCoordinateFormat.ValueType
         """
         How the GPS coordinates are formatted on the OLED screen.
         """
@@ -1141,15 +1141,15 @@ class Config(google.protobuf.message.Message):
         """
         Flip screen vertically, for cases that mount the screen upside down
         """
-        units: global___Config.DisplayConfig.DisplayUnits.ValueType
+        units: Global___Config.DisplayConfig.DisplayUnits.ValueType
         """
         Perferred display units
         """
-        oled: global___Config.DisplayConfig.OledType.ValueType
+        oled: Global___Config.DisplayConfig.OledType.ValueType
         """
         Override auto-detect in screen
         """
-        displaymode: global___Config.DisplayConfig.DisplayMode.ValueType
+        displaymode: Global___Config.DisplayConfig.DisplayMode.ValueType
         """
         Display Mode
         """
@@ -1161,7 +1161,7 @@ class Config(google.protobuf.message.Message):
         """
         Should we wake the screen up on accelerometer detected motion or tap
         """
-        compass_orientation: global___Config.DisplayConfig.CompassOrientation.ValueType
+        compass_orientation: Global___Config.DisplayConfig.CompassOrientation.ValueType
         """
         Indicates how to rotate or invert the compass output to accurate display on the display.
         """
@@ -1169,16 +1169,16 @@ class Config(google.protobuf.message.Message):
             self,
             *,
             screen_on_secs: builtins.int = ...,
-            gps_format: global___Config.DisplayConfig.GpsCoordinateFormat.ValueType = ...,
+            gps_format: Global___Config.DisplayConfig.GpsCoordinateFormat.ValueType = ...,
             auto_screen_carousel_secs: builtins.int = ...,
             compass_north_top: builtins.bool = ...,
             flip_screen: builtins.bool = ...,
-            units: global___Config.DisplayConfig.DisplayUnits.ValueType = ...,
-            oled: global___Config.DisplayConfig.OledType.ValueType = ...,
-            displaymode: global___Config.DisplayConfig.DisplayMode.ValueType = ...,
+            units: Global___Config.DisplayConfig.DisplayUnits.ValueType = ...,
+            oled: Global___Config.DisplayConfig.OledType.ValueType = ...,
+            displaymode: Global___Config.DisplayConfig.DisplayMode.ValueType = ...,
             heading_bold: builtins.bool = ...,
             wake_on_tap_or_motion: builtins.bool = ...,
-            compass_orientation: global___Config.DisplayConfig.CompassOrientation.ValueType = ...,
+            compass_orientation: Global___Config.DisplayConfig.CompassOrientation.ValueType = ...,
         ) -> None: ...
         def ClearField(self, field_name: typing.Literal["auto_screen_carousel_secs", b"auto_screen_carousel_secs", "compass_north_top", b"compass_north_top", "compass_orientation", b"compass_orientation", "displaymode", b"displaymode", "flip_screen", b"flip_screen", "gps_format", b"gps_format", "heading_bold", b"heading_bold", "oled", b"oled", "screen_on_secs", b"screen_on_secs", "units", b"units", "wake_on_tap_or_motion", b"wake_on_tap_or_motion"]) -> None: ...
 
@@ -1490,7 +1490,7 @@ class Config(google.protobuf.message.Message):
         When enabled, the `modem_preset` fields will be adhered to, else the `bandwidth`/`spread_factor`/`coding_rate`
         will be taked from their respective manually defined fields
         """
-        modem_preset: global___Config.LoRaConfig.ModemPreset.ValueType
+        modem_preset: Global___Config.LoRaConfig.ModemPreset.ValueType
         """
         Either modem_config or bandwidth/spreading/coding will be specified - NOT BOTH.
         As a heuristic: If bandwidth is specified, do not use modem_config.
@@ -1520,7 +1520,7 @@ class Config(google.protobuf.message.Message):
         A frequency offset that is added to to the calculated band center frequency.
         Used to correct for crystal calibration errors.
         """
-        region: global___Config.LoRaConfig.RegionCode.ValueType
+        region: Global___Config.LoRaConfig.RegionCode.ValueType
         """
         The region code for the radio (US, CN, EU433, etc...)
         """
@@ -1594,12 +1594,12 @@ class Config(google.protobuf.message.Message):
             self,
             *,
             use_preset: builtins.bool = ...,
-            modem_preset: global___Config.LoRaConfig.ModemPreset.ValueType = ...,
+            modem_preset: Global___Config.LoRaConfig.ModemPreset.ValueType = ...,
             bandwidth: builtins.int = ...,
             spread_factor: builtins.int = ...,
             coding_rate: builtins.int = ...,
             frequency_offset: builtins.float = ...,
-            region: global___Config.LoRaConfig.RegionCode.ValueType = ...,
+            region: Global___Config.LoRaConfig.RegionCode.ValueType = ...,
             hop_limit: builtins.int = ...,
             tx_enabled: builtins.bool = ...,
             tx_power: builtins.int = ...,
@@ -1658,7 +1658,7 @@ class Config(google.protobuf.message.Message):
         """
         Enable Bluetooth on the device
         """
-        mode: global___Config.BluetoothConfig.PairingMode.ValueType
+        mode: Global___Config.BluetoothConfig.PairingMode.ValueType
         """
         Determines the pairing strategy for the device
         """
@@ -1670,7 +1670,7 @@ class Config(google.protobuf.message.Message):
             self,
             *,
             enabled: builtins.bool = ...,
-            mode: global___Config.BluetoothConfig.PairingMode.ValueType = ...,
+            mode: Global___Config.BluetoothConfig.PairingMode.ValueType = ...,
             fixed_pin: builtins.int = ...,
         ) -> None: ...
         def ClearField(self, field_name: typing.Literal["enabled", b"enabled", "fixed_pin", b"fixed_pin", "mode", b"mode"]) -> None: ...
@@ -1756,41 +1756,41 @@ class Config(google.protobuf.message.Message):
     SESSIONKEY_FIELD_NUMBER: builtins.int
     DEVICE_UI_FIELD_NUMBER: builtins.int
     @property
-    def device(self) -> global___Config.DeviceConfig: ...
+    def device(self) -> Global___Config.DeviceConfig: ...
     @property
-    def position(self) -> global___Config.PositionConfig: ...
+    def position(self) -> Global___Config.PositionConfig: ...
     @property
-    def power(self) -> global___Config.PowerConfig: ...
+    def power(self) -> Global___Config.PowerConfig: ...
     @property
-    def network(self) -> global___Config.NetworkConfig: ...
+    def network(self) -> Global___Config.NetworkConfig: ...
     @property
-    def display(self) -> global___Config.DisplayConfig: ...
+    def display(self) -> Global___Config.DisplayConfig: ...
     @property
-    def lora(self) -> global___Config.LoRaConfig: ...
+    def lora(self) -> Global___Config.LoRaConfig: ...
     @property
-    def bluetooth(self) -> global___Config.BluetoothConfig: ...
+    def bluetooth(self) -> Global___Config.BluetoothConfig: ...
     @property
-    def security(self) -> global___Config.SecurityConfig: ...
+    def security(self) -> Global___Config.SecurityConfig: ...
     @property
-    def sessionkey(self) -> global___Config.SessionkeyConfig: ...
+    def sessionkey(self) -> Global___Config.SessionkeyConfig: ...
     @property
     def device_ui(self) -> meshtastic.protobuf.device_ui_pb2.DeviceUIConfig: ...
     def __init__(
         self,
         *,
-        device: global___Config.DeviceConfig | None = ...,
-        position: global___Config.PositionConfig | None = ...,
-        power: global___Config.PowerConfig | None = ...,
-        network: global___Config.NetworkConfig | None = ...,
-        display: global___Config.DisplayConfig | None = ...,
-        lora: global___Config.LoRaConfig | None = ...,
-        bluetooth: global___Config.BluetoothConfig | None = ...,
-        security: global___Config.SecurityConfig | None = ...,
-        sessionkey: global___Config.SessionkeyConfig | None = ...,
+        device: Global___Config.DeviceConfig | None = ...,
+        position: Global___Config.PositionConfig | None = ...,
+        power: Global___Config.PowerConfig | None = ...,
+        network: Global___Config.NetworkConfig | None = ...,
+        display: Global___Config.DisplayConfig | None = ...,
+        lora: Global___Config.LoRaConfig | None = ...,
+        bluetooth: Global___Config.BluetoothConfig | None = ...,
+        security: Global___Config.SecurityConfig | None = ...,
+        sessionkey: Global___Config.SessionkeyConfig | None = ...,
         device_ui: meshtastic.protobuf.device_ui_pb2.DeviceUIConfig | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["bluetooth", b"bluetooth", "device", b"device", "device_ui", b"device_ui", "display", b"display", "lora", b"lora", "network", b"network", "payload_variant", b"payload_variant", "position", b"position", "power", b"power", "security", b"security", "sessionkey", b"sessionkey"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["bluetooth", b"bluetooth", "device", b"device", "device_ui", b"device_ui", "display", b"display", "lora", b"lora", "network", b"network", "payload_variant", b"payload_variant", "position", b"position", "power", b"power", "security", b"security", "sessionkey", b"sessionkey"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["payload_variant", b"payload_variant"]) -> typing.Literal["device", "position", "power", "network", "display", "lora", "bluetooth", "security", "sessionkey", "device_ui"] | None: ...
 
-global___Config = Config
+Global___Config: typing_extensions.TypeAlias = Config
