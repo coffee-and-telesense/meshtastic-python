@@ -144,6 +144,7 @@ class NodeInfoLite(google.protobuf.message.Message):
     IS_FAVORITE_FIELD_NUMBER: builtins.int
     IS_IGNORED_FIELD_NUMBER: builtins.int
     NEXT_HOP_FIELD_NUMBER: builtins.int
+    RSSI_FIELD_NUMBER: builtins.int
     num: builtins.int
     """
     The node number
@@ -183,6 +184,10 @@ class NodeInfoLite(google.protobuf.message.Message):
     """
     Last byte of the node number of the node that should be used as the next hop to reach this node.
     """
+    rssi: builtins.int
+    """
+    Last rx'd RSSI of this node
+    """
     @property
     def user(self) -> global___UserLite:
         """
@@ -217,10 +222,14 @@ class NodeInfoLite(google.protobuf.message.Message):
         is_favorite: builtins.bool = ...,
         is_ignored: builtins.bool = ...,
         next_hop: builtins.int = ...,
+        rssi: builtins.int | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_hops_away", b"_hops_away", "device_metrics", b"device_metrics", "hops_away", b"hops_away", "position", b"position", "user", b"user"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_hops_away", b"_hops_away", "channel", b"channel", "device_metrics", b"device_metrics", "hops_away", b"hops_away", "is_favorite", b"is_favorite", "is_ignored", b"is_ignored", "last_heard", b"last_heard", "next_hop", b"next_hop", "num", b"num", "position", b"position", "snr", b"snr", "user", b"user", "via_mqtt", b"via_mqtt"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_hops_away", b"_hops_away", "_rssi", b"_rssi", "device_metrics", b"device_metrics", "hops_away", b"hops_away", "position", b"position", "rssi", b"rssi", "user", b"user"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_hops_away", b"_hops_away", "_rssi", b"_rssi", "channel", b"channel", "device_metrics", b"device_metrics", "hops_away", b"hops_away", "is_favorite", b"is_favorite", "is_ignored", b"is_ignored", "last_heard", b"last_heard", "next_hop", b"next_hop", "num", b"num", "position", b"position", "rssi", b"rssi", "snr", b"snr", "user", b"user", "via_mqtt", b"via_mqtt"]) -> None: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_hops_away", b"_hops_away"]) -> typing.Literal["hops_away"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_rssi", b"_rssi"]) -> typing.Literal["rssi"] | None: ...
 
 global___NodeInfoLite = NodeInfoLite
 

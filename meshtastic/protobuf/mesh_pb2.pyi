@@ -2930,6 +2930,8 @@ class Neighbor(google.protobuf.message.Message):
     SNR_FIELD_NUMBER: builtins.int
     LAST_RX_TIME_FIELD_NUMBER: builtins.int
     NODE_BROADCAST_INTERVAL_SECS_FIELD_NUMBER: builtins.int
+    NUM_PACKETS_RX_FIELD_NUMBER: builtins.int
+    RSSI_FIELD_NUMBER: builtins.int
     node_id: builtins.int
     """
     Node ID of neighbor
@@ -2941,12 +2943,19 @@ class Neighbor(google.protobuf.message.Message):
     last_rx_time: builtins.int
     """
     Reception time (in secs since 1970) of last message that was last sent by this ID.
-    Note: this is for local storage only and will not be sent out over the mesh.
     """
     node_broadcast_interval_secs: builtins.int
     """
     Broadcast interval of this neighbor (in seconds).
     Note: this is for local storage only and will not be sent out over the mesh.
+    """
+    num_packets_rx: builtins.int
+    """
+    Number of packets heard from this node
+    """
+    rssi: builtins.int
+    """
+    Last RSSI from a given node
     """
     def __init__(
         self,
@@ -2955,8 +2964,10 @@ class Neighbor(google.protobuf.message.Message):
         snr: builtins.float = ...,
         last_rx_time: builtins.int = ...,
         node_broadcast_interval_secs: builtins.int = ...,
+        num_packets_rx: builtins.int = ...,
+        rssi: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["last_rx_time", b"last_rx_time", "node_broadcast_interval_secs", b"node_broadcast_interval_secs", "node_id", b"node_id", "snr", b"snr"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["last_rx_time", b"last_rx_time", "node_broadcast_interval_secs", b"node_broadcast_interval_secs", "node_id", b"node_id", "num_packets_rx", b"num_packets_rx", "rssi", b"rssi", "snr", b"snr"]) -> None: ...
 
 global___Neighbor = Neighbor
 
